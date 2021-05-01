@@ -1,1 +1,1 @@
-# Java_fejleszt-s_a_gyakorlatban
+# Java_fejlesztes_a_gyakorlatban
