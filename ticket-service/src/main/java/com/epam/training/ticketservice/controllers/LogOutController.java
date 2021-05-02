@@ -1,6 +1,6 @@
 package com.epam.training.ticketservice.controllers;
 
-import com.epam.training.ticketservice.commands.LogInCommand;
+
 import com.epam.training.ticketservice.commands.LogOutCommand;
 import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;

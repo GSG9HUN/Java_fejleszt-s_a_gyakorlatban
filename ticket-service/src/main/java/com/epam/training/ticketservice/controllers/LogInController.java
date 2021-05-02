@@ -5,7 +5,7 @@ import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
 
 @ShellComponent
-public class LoginController {
+public class LogInController {
 
     @ShellMethod(value = "Sign in as an admin",key = "sign in privileged")
     public String login(String username,String password){

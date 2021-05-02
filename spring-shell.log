@@ -17,3 +17,42 @@
 1619880966644:create movie "film címe" Romantic 123
 1619881561514:sign in privileged asdmin 123
 1619881568477:sign in privileged admin admin
+1619882460165:exit
+1619882495768:sign in priviliged admin admin
+1619882515236:sign in privileged admin admin
+1619882649551:sign in privileged 123 123
+1619882913235:sign in privileged admin admin
+1619882934930:sign out
+1619883331899:describe account
+1619883341428:sign in privileged admin admin
+1619883347172:describe account
+1619883728194:sign in privileged admin admin
+1619883742336:create movie "Te vagy" Drama 125
+1619891787831:sign in privileged admin admin
+1619891791684:describe account
+1619891795692:sign out
+1619891800854:describe account
+1619891804099:create movie
+1619891821645:create movie "film címe" Dráma 125
+1619891855379:sign in privileged admin admin
+1619891871277:create movie "film címe" Dráma 125
+1619891878434:list movies
+1619949614295:create movie "fasza film" Dráma 125
+1619951038924:sign in privileged admin admin
+1619951047642:create movie "fasza film" Dráma 123
+1619953565384:sign in priviliged admin admin
+1619953574272:help
+1619953585374:sign in privileged admin admin
+1619953608806:create movie "Random film cím" Dráma 125
+1619953614020:list movie
+1619953621336:list movies
+1619953875209:sign in privileged admin admin
+1619953894612:create movie "Fasza film" Dráma 125
+1619953897492:list movies
+1619953957683:stacktrace list movies
+1619954336538:sign in privileged admin admin
+1619954348616:create movie admin drama 123
+1619954351909:list movies
+1619956081225:sign in privileged admin admin
+1619956099448:create movie asd drama 123
+1619956111106:create movie "fasza film" drama 123

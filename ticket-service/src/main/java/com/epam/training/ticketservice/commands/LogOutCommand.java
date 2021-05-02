@@ -6,6 +6,6 @@ public class LogOutCommand implements Command{
     @Override
     public String execute(String... args) {
         AdminAccount.setIsLogedIn(false);
-        return "";
+        return "You signed out";
     }
 }
