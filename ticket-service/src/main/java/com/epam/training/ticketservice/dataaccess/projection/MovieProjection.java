@@ -10,6 +10,8 @@ public class MovieProjection {
     private String category;
     private int length;
 
+
+
     public MovieProjection(String name, String category, int length) {
         this.name = name;
         this.category = category;
@@ -29,5 +31,13 @@ public class MovieProjection {
 
     public int getLength() {
         return length;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public void setLength(int length) {
+        this.length = length;
     }
 }

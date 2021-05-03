@@ -1,23 +1,24 @@
 package com.epam.training.ticketservice.services;
 
 import com.epam.training.ticketservice.Modell.AdminAccount;
+import com.epam.training.ticketservice.exceptions.SignInOutException;
 import org.springframework.stereotype.Service;
 
 @Service
 public class SignInOutService {
 
-    public void signIn(String username, String password) throws Exception {
+    public void signIn(String username, String password) throws SignInOutException {
 
-        if(AdminAccount.getPassword().equals(password) && AdminAccount.getUsername().equals(username) &&
-            !AdminAccount.isLogedIn()){
+        if(AdminAccount.getPassword().equals(password) && AdminAccount.getUsername().equals(username)
+                && !AdminAccount.isLogedIn()){
             AdminAccount.setIsLogedIn(true);
             return;
         }
         if(AdminAccount.isLogedIn()){
-            throw new Exception("You already logged in");
+            throw new SignInOutException("You already logged in");
         }
         if(AdminAccount.getPassword().equals(password) || AdminAccount.getUsername().equals(username)){
-            throw new Exception("Login failed due to incorrect credentials");
+            throw new SignInOutException("Login failed due to incorrect credentials");
         }
 
 
@@ -26,10 +27,10 @@ public class SignInOutService {
 
     }
 
-    public void signOut() throws Exception {
+    public void signOut() throws SignInOutException {
 
         if(!AdminAccount.isLogedIn())
-            throw new Exception("You are not logged in");
+            throw new SignInOutException("You are not logged in");
         AdminAccount.setIsLogedIn(false);
 
     }

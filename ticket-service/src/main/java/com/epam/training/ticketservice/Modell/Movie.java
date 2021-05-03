@@ -7,7 +7,8 @@ public class Movie {
     private int length;
 
 
-    public Movie(String name,String category, int length){
+
+    public Movie(String name, String category, int length){
         this.name=name;
         this.category=category;
         this.length=length;
@@ -24,4 +25,7 @@ public class Movie {
     public int getLength() {
         return length;
     }
+
+
+
 }
