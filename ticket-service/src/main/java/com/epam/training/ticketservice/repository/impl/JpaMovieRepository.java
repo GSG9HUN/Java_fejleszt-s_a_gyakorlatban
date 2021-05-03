@@ -27,11 +27,6 @@ public class JpaMovieRepository implements MovieRepository {
     @Override
     public void saveMovie(Movie movie) {
         movieDao.save(mapMovie(movie));
-        List<Movie> movies = getAll();
-        for (Movie movie1:
-             movies) {
-            System.out.println(movie1);
-        }
     }
 
     private MovieProjection mapMovie(Movie movie){
