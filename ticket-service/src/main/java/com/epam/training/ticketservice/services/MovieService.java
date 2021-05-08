@@ -1,6 +1,6 @@
 package com.epam.training.ticketservice.services;
 
-import com.epam.training.ticketservice.Modell.Movie;
+import com.epam.training.ticketservice.modell.Movie;
 import com.epam.training.ticketservice.exceptions.EmptyListException;
 import com.epam.training.ticketservice.exceptions.CrudException;
 import com.epam.training.ticketservice.repository.impl.JpaMovieRepository;
@@ -14,30 +14,27 @@ public class MovieService {
     private JpaMovieRepository jpaMovieRepository;
 
     public MovieService(JpaMovieRepository jpaMovieRepository) {
-        this.jpaMovieRepository=jpaMovieRepository;
+        this.jpaMovieRepository = jpaMovieRepository;
     }
 
-    public void createMovie(String movieName, String movieCategory, String moviesLength){
-
-        Movie movie = new Movie(movieName,movieCategory,Integer.parseInt(moviesLength));
-        jpaMovieRepository.saveMovie(movie);
-
+    public void createMovie(String movieName, String movieCategory, String moviesLength) {
+        Movie movie = new Movie(movieName, movieCategory, Integer.parseInt(moviesLength));
+        jpaMovieRepository.save(movie);
     }
 
-    public List<Movie> listMovies() throws EmptyListException{
+    public List<Movie> listMovies() throws EmptyListException {
         List<Movie> movies = jpaMovieRepository.getAll();
-        if(movies.isEmpty()){
+        if (movies.isEmpty()) {
             throw new EmptyListException("Theres no movies at the moment");
         }
-        return  movies;
+        return movies;
     }
 
-
     public void deleteMovie(String movieName) throws CrudException {
-        jpaMovieRepository.deleteMovie(movieName);
+        jpaMovieRepository.delete(movieName);
     }
 
     public void updateMovie(String movieName, String movieCategory, String moviesLength) throws CrudException {
-        jpaMovieRepository.updateMovie(movieName,movieCategory,Integer.parseInt(moviesLength));
+        jpaMovieRepository.update(movieName, movieCategory, moviesLength);
     }
 }

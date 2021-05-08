@@ -1,12 +1,10 @@
 package com.epam.training.ticketservice.repository.impl;
 
-import com.epam.training.ticketservice.Modell.Room;
+import com.epam.training.ticketservice.modell.Room;
 import com.epam.training.ticketservice.dataaccess.dao.RoomDao;
-import com.epam.training.ticketservice.dataaccess.projection.MovieProjection;
 import com.epam.training.ticketservice.dataaccess.projection.RoomProjection;
 import com.epam.training.ticketservice.exceptions.CrudException;
-import com.epam.training.ticketservice.repository.RoomRepository;
-import jdk.jfr.Registered;
+import com.epam.training.ticketservice.repository.Repo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -15,14 +13,15 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Repository
-public class JpaRoomRepository implements RoomRepository {
+public class JpaRoomRepository implements Repo {
 
     private final RoomDao roomDao;
 
     @Autowired
-    public JpaRoomRepository(RoomDao roomDao){
-        this.roomDao=roomDao;
+    public JpaRoomRepository(RoomDao roomDao) {
+        this.roomDao = roomDao;
     }
+
     @Override
     public List<Room> getAll() {
         return roomDao.findAll().stream()
@@ -30,55 +29,56 @@ public class JpaRoomRepository implements RoomRepository {
     }
 
     @Override
-    public void saveRoom(Room room) {
-
-        RoomProjection roomProjection = mapRoom(room);
+    public void save(Object o) {
+        RoomProjection roomProjection = mapRoom((Room) o);
         roomDao.save(roomProjection);
     }
 
     @Override
-    public Room updateRoom(String roomName, int rowNum, int colNum) throws CrudException {
-
-        Optional<RoomProjection> room = findRoomByName(roomName);
-        if(room.isPresent()){
+    public void update(String name, String param2, String param3) throws CrudException {
+        int rowNum = Integer.parseInt(param2);
+        int colNum = Integer.parseInt(param3);
+        Optional<RoomProjection> room = findRoomByName(name);
+        if (room.isPresent()) {
             room.get().setRowNum(rowNum);
             room.get().setColNum(colNum);
             roomDao.save(room.get());
-            throw new CrudException("Room updated");
+            return;
         }
         throw new CrudException("Room doesn't exist");
 
     }
 
     @Override
-    public void deleteRoom(String movieName) throws CrudException {
-        Optional<RoomProjection> movie = findRoomByName(movieName);
-        if(movie.isPresent()){
-            roomDao.delete(movie.get());
-            throw new CrudException("Room deleted");
+    public void delete(String name) throws CrudException {
+        Optional<RoomProjection> room = findRoomByName(name);
+        if (room.isPresent()) {
+            roomDao.delete(room.get());
+            return;
         }
         throw new CrudException("Room doesn't exist");
     }
 
-    private RoomProjection mapRoom(Room room){
-        return  new RoomProjection(room.getName(),room.getRowNum(),room.getColNum());
+
+    private RoomProjection mapRoom(Room room) {
+        return new RoomProjection(room.getName(), room.getRowNum(), room.getColNum());
     }
 
-
-    private Optional<RoomProjection> findRoomByName(String roomName){
-        List<RoomProjection> roomProjections = roomDao.findAll();
-        return roomProjections.stream()
-                .filter( movieProjection -> movieProjection.getName().equals(roomName))
-                .findFirst();
+    private Room mapRoom(RoomProjection roomProjection) {
+        return new Room(roomProjection.getName(), roomProjection.getRowNum(), roomProjection.getColNum());
     }
 
-    private List<Room> mapRoomProjection(List<RoomProjection> roomProjections){
+    private List<Room> mapRoomProjection(List<RoomProjection> roomProjections) {
         return roomProjections.stream()
                 .map(this::mapRoom)
                 .collect(Collectors.toList());
     }
 
-    private Room mapRoom(RoomProjection roomProjection){
-        return new Room(roomProjection.getName(),roomProjection.getRowNum(),roomProjection.getColNum());
+    private Optional<RoomProjection> findRoomByName(String roomName) {
+        List<RoomProjection> roomProjections = roomDao.findAll();
+        return roomProjections.stream()
+                .filter(roomProjection -> roomProjection.getName().equals(roomName))
+                .findFirst();
     }
+
 }

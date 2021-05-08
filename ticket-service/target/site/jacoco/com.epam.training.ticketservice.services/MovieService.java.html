@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="hu"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MovieService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ticket-service</a> &gt; <a href="index.source.html" class="el_package">com.epam.training.ticketservice.services</a> &gt; <span class="el_source">MovieService.java</span></div><h1>MovieService.java</h1><pre class="source lang-java linenums">package com.epam.training.ticketservice.services;
+
+import com.epam.training.ticketservice.modell.Movie;
+import com.epam.training.ticketservice.exceptions.EmptyListException;
+import com.epam.training.ticketservice.exceptions.CrudException;
+import com.epam.training.ticketservice.repository.impl.JpaMovieRepository;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class MovieService {
+
+    private JpaMovieRepository jpaMovieRepository;
+
+<span class="fc" id="L16">    public MovieService(JpaMovieRepository jpaMovieRepository) {</span>
+<span class="fc" id="L17">        this.jpaMovieRepository = jpaMovieRepository;</span>
+<span class="fc" id="L18">    }</span>
+
+    public void createMovie(String movieName, String movieCategory, String moviesLength) {
+<span class="nc" id="L21">        Movie movie = new Movie(movieName, movieCategory, Integer.parseInt(moviesLength));</span>
+<span class="nc" id="L22">        jpaMovieRepository.save(movie);</span>
+<span class="nc" id="L23">    }</span>
+
+    public List&lt;Movie&gt; listMovies() throws EmptyListException {
+<span class="fc" id="L26">        List&lt;Movie&gt; movies = jpaMovieRepository.getAll();</span>
+<span class="fc bfc" id="L27" title="All 2 branches covered.">        if (movies.isEmpty()) {</span>
+<span class="fc" id="L28">            throw new EmptyListException(&quot;Theres no movies at the moment&quot;);</span>
+        }
+<span class="fc" id="L30">        return movies;</span>
+    }
+
+    public void deleteMovie(String movieName) throws CrudException {
+<span class="nc" id="L34">        jpaMovieRepository.delete(movieName);</span>
+<span class="nc" id="L35">    }</span>
+
+    public void updateMovie(String movieName, String movieCategory, String moviesLength) throws CrudException {
+<span class="nc" id="L38">        jpaMovieRepository.update(movieName, movieCategory, moviesLength);</span>
+<span class="nc" id="L39">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

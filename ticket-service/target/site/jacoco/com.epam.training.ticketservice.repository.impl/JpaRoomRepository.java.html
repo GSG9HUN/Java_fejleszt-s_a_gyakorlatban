@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="hu"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>JpaRoomRepository.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ticket-service</a> &gt; <a href="index.source.html" class="el_package">com.epam.training.ticketservice.repository.impl</a> &gt; <span class="el_source">JpaRoomRepository.java</span></div><h1>JpaRoomRepository.java</h1><pre class="source lang-java linenums">package com.epam.training.ticketservice.repository.impl;
+
+import com.epam.training.ticketservice.modell.Room;
+import com.epam.training.ticketservice.dataaccess.dao.RoomDao;
+import com.epam.training.ticketservice.dataaccess.projection.RoomProjection;
+import com.epam.training.ticketservice.exceptions.CrudException;
+import com.epam.training.ticketservice.repository.Repo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+@Repository
+public class JpaRoomRepository implements Repo {
+
+    private final RoomDao roomDao;
+
+    @Autowired
+<span class="fc" id="L21">    public JpaRoomRepository(RoomDao roomDao) {</span>
+<span class="fc" id="L22">        this.roomDao = roomDao;</span>
+<span class="fc" id="L23">    }</span>
+
+    @Override
+    public List&lt;Room&gt; getAll() {
+<span class="nc" id="L27">        return roomDao.findAll().stream()</span>
+<span class="nc" id="L28">                .map(this::mapRoom).collect(Collectors.toList());</span>
+    }
+
+    @Override
+    public void save(Object o) {
+<span class="nc" id="L33">        RoomProjection roomProjection = mapRoom((Room) o);</span>
+<span class="nc" id="L34">        roomDao.save(roomProjection);</span>
+<span class="nc" id="L35">    }</span>
+
+    @Override
+    public void update(String name, String param2, String param3) throws CrudException {
+<span class="fc" id="L39">        int rowNum = Integer.parseInt(param2);</span>
+<span class="fc" id="L40">        int colNum = Integer.parseInt(param3);</span>
+<span class="fc" id="L41">        Optional&lt;RoomProjection&gt; room = findRoomByName(name);</span>
+<span class="fc bfc" id="L42" title="All 2 branches covered.">        if (room.isPresent()) {</span>
+<span class="fc" id="L43">            room.get().setRowNum(rowNum);</span>
+<span class="fc" id="L44">            room.get().setColNum(colNum);</span>
+<span class="fc" id="L45">            roomDao.save(room.get());</span>
+<span class="fc" id="L46">            return;</span>
+        }
+<span class="fc" id="L48">        throw new CrudException(&quot;Room doesn't exist&quot;);</span>
+
+    }
+
+    @Override
+    public void delete(String name) throws CrudException {
+<span class="fc" id="L54">        Optional&lt;RoomProjection&gt; room = findRoomByName(name);</span>
+<span class="fc bfc" id="L55" title="All 2 branches covered.">        if (room.isPresent()) {</span>
+<span class="fc" id="L56">            roomDao.delete(room.get());</span>
+<span class="fc" id="L57">            return;</span>
+        }
+<span class="fc" id="L59">        throw new CrudException(&quot;Room doesn't exist&quot;);</span>
+    }
+
+
+    private RoomProjection mapRoom(Room room) {
+<span class="nc" id="L64">        return new RoomProjection(room.getName(), room.getRowNum(), room.getColNum());</span>
+    }
+
+    private Room mapRoom(RoomProjection roomProjection) {
+<span class="nc" id="L68">        return new Room(roomProjection.getName(), roomProjection.getRowNum(), roomProjection.getColNum());</span>
+    }
+
+    private List&lt;Room&gt; mapRoomProjection(List&lt;RoomProjection&gt; roomProjections) {
+<span class="nc" id="L72">        return roomProjections.stream()</span>
+<span class="nc" id="L73">                .map(this::mapRoom)</span>
+<span class="nc" id="L74">                .collect(Collectors.toList());</span>
+    }
+
+    private Optional&lt;RoomProjection&gt; findRoomByName(String roomName) {
+<span class="fc" id="L78">        List&lt;RoomProjection&gt; roomProjections = roomDao.findAll();</span>
+<span class="fc" id="L79">        return roomProjections.stream()</span>
+<span class="fc" id="L80">                .filter(roomProjection -&gt; roomProjection.getName().equals(roomName))</span>
+<span class="fc" id="L81">                .findFirst();</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

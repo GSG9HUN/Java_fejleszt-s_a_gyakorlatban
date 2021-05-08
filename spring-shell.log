@@ -72,3 +72,392 @@
 1620038979125:sign out
 1620038998093:sign in privileged admin admin
 1620039001020:sign out
+1620041460025:sign in privileged admin admin
+1620044055715:sign out
+1620045091332:sign in privileged admin admin
+1620045122717:create movie "Titanic 2" Dráma 125
+1620045125945:list movies
+1620045407076:create movie "Bad Boys 2" Action 125
+1620045410356:list movies
+1620045513585:create movie Alma Drama 123
+1620045525939:create movie Korte Action 124
+1620045528351:list movies
+1620045680080:describe account
+1620046969488:sign in privileged admin admin
+1620046980188:create movie Alma Drama 125
+1620046986968:create movie Korte Drama 125
+1620046989827:list movies
+1620047004319:update movie Alma Romantic 125
+1620047015219:update movie Korte Romantic
+1620047030190:update movie Korte Romantic 125
+1620047048908:update movie "nem tom" Drama 123
+1620047882263:sign in privileged admin admin
+1620047895164:create movie Sátántangó Action 125
+1620047907458:create movie Lepke Sci-fi 125
+1620047910229:list movies
+1620047927558:update movie Sátántangó Sci-fi 125
+1620047930502:list movies
+1620047949119:update movie satantango sci-fi 125
+1620047957180:list movies
+1620050987821:sign in privileged username admin
+1620050996683:sign in privileged admin admin
+1620051655948:sign out
+1620051664023:sign in privileged admin admin
+1620051809513:sign in privileged username username
+1620051821981:sign out
+1620051829026:sign in privileged admin 123
+1620051948649:sign in privileged admin admin
+1620051959147:sign out
+1620055057119:sign in admin admin
+1620055064737:sign in privileged admin admin
+1620055077698:create movie "Titanic 2" Dráma 125
+1620055106683:create movie "Bad boys 2" Action 125
+1620055125621:create movie "Támadás a fehérház ellen" Action 129
+1620055128544:list movies
+1620055146763:update movie "Támadás a fehérház ellen" Sci-fi 125
+1620055150786:list movies
+1620055296285:update movie "fasza film" Action 125
+1620055338915:create movie "Támadás a fehérház ellen" Sci-fi 125
+1620055342177:list movies
+1620055922191:sign in privileged admin admin
+1620055929540:create movie Titanic drama 125
+1620055932449:list movies
+1620055937623:delete movie asder
+1620055945350:delete movie Titanic
+1620055947579:list movies
+1620056062781:sign in privileged admin admin
+1620056067377:list movies
+1620056074229:create movie titanic drama 123
+1620056087974:list movies
+1620060196636:create room teremnev 2 2
+1620060291689:create room terem 1 1
+1620060303156:sign in privileged admin admin
+1620060310548:create room terem 1 1
+1620060328760:list room
+1620060333209:list rooms
+1620060343082:create room terem1 1 1
+1620060351332:update room terem 2 2
+1620060354382:list rooms
+1620060361521:delete room terem
+1620060365433:delete room terem1
+1620060369180:delete room terem
+1620060372066:list rooms
+1620060896478:sign in privileged admin admin
+1620060930610:create room terem 5 5
+1620060933666:list rooms
+1620062636853:sign in privileged admin admin
+1620062654577:create room terem 5 5
+1620062663809:create room 4 4
+1620062684618:creat room terem2 5 5
+1620062693663:create room terem2 2 2
+1620062696986:list rooms
+1620062708410:create movie cim drama 124
+1620062719432:create movie cimek action 43
+1620062728012:list movies
+1620117565296:create screen movie room 1999.11.30 16:00
+1620117585401:create screening movie room 1999.11.30 16:00
+1620117607847:create screening movie room "1999.11.30 16:30"
+1620117665021:create screening movie room "1999-11-30 16:00"
+1620117913034:create screening movie room "2005-11-30 16:30"
+1620118082196:create screening movie room "2015-12-30 16:00"
+1620118240467:create screening movie room "2012-11-30 16:00"
+1620118259670:stakcrace
+1620118265591:stacktrace
+1620118273049:create screening movie room "2012-11-30 16:00"
+1620118275254:stacktrace
+1620118314249:create screening "Spirited Away" Pedersoli "2021-03-14 16:00"
+1620119012437:stacktrace
+1620119232975:create screening "Spirited Away" Pedersoli "2021-03-14 16:00"
+1620120288560:System.out.println(temp);
+1620120297779:create screening "Spirited Away" Pedersoli "2021-03-14 16:00"
+1620120356553:create screening "Spirited Away" Pedersoli "2021-03-14 16:15"
+1620121143855:sign in privileged admin admin
+1620121149780:create room Terem1 2 2
+1620121158588:list rooms
+1620121169823:update room Terem1 3 3
+1620121172572:list rooms
+1620121182214:create room Terem2 3 3
+1620121189116:list rooms
+1620121199657:update room Terem1 3 4
+1620121202093:list rooms
+1620122441859:create screening "Spirited Away" Pedersoli "2021-03-14 16:00"
+1620122523615:list screening
+1620124469142:create screening alma korte "2012-11-30 16:00"
+1620124488977:list screenings
+1620124608008:stacktrace
+1620124631752:sign in privileged admin admin
+1620124650031:create movie Alma drama 125
+1620124657538:create movie korte drama 125
+1620124659336:list movies
+1620124668885:create room Terem1 2 2
+1620124675327:create room Terem2 3 3
+1620124691471:create screening Alma Terem1 "2012-11-30 16:30"
+1620124708199:list screenings
+1620124724474:stacktrace
+1620124803053:create screening Alma Terem1 "2012-11-30 16:00"
+1620124806983:list screenings
+1620125060480:create screening Alma Terem1 "2012-11-30 16:30"
+1620125066532:list screenings
+1620125072260:stacktrace
+1620125091313:sign in privileged admin admin
+1620125098788:create movie Alma drama 123
+1620125102467:list screenings
+1620125280595:mvn clean verify -p requirements-grade3
+1620220024354:sign in privileged admin admin
+1620220042066:create screening film terem "2016-11-30 16:00"
+1620220051839:create movie film drama 125
+1620220067274:create screening film terem "2016-11-30 16:00"
+1620220075721:create room terem 2 2
+1620220087899:create screening film terem "2016-11-30 16:00"
+1620220092987:list movies
+1620220097113:list rooms
+1620220103465:list screenings
+1620318114051:sign in privileged sandor sandor
+1620392382191:movie create film action 125
+1620392413296:create movie film action 123
+1620392421842:sign in privileged admin admin
+1620392432019:create movie film action 124
+1620392438790:create room Terem 2 2
+1620392472578:create screening film terem "2012-11-30 16:30"
+1620392490686:create screening film Terem "2012-11-30 16:30"
+1620392607305:sign in privileged admin admin
+1620392614358:create movie film action 125
+1620392618230:create room terem 2 2
+1620392635025:create screening film terem "2012-11-30 16:00"
+1620392932509:sign in privileged
+1620392947137:sign in privileged admin admin
+1620392959144:create movie film action 120
+1620392963542:create room terem 2 2
+1620392977644:create screening film terem "2012-11-30 16:00"
+1620393077163:sign in privileged
+1620393082593:sign in privileged admin admin
+1620393088869:create room terem 2 2
+1620393098959:create movie film action 125
+1620393120323:create screening film terem "2012-11-30 16:25"
+1620393537401:sign in privileged admin admin
+1620393549084:create movie film action 125
+1620393554774:create room terem 2 2
+1620393573797:create screening film terem "2021-05-07 15:20"
+1620393578776:list screenings
+1620393750093:create movie film action 126
+1620393753161:list movies
+1620393775926:list rooms
+1620393808300:list screenings
+1620393831094:create screening film terem "2012-11-30 16:33"
+1620393836122:list screenings
+1620393880230:sign in privileged admin admin
+1620393888892:create movie film drama 125
+1620393894091:create room terem 2 2
+1620393901657:list screenings
+1620393930153:create screening film terem "2012-11-30 16:53\n"
+1620393941501:list screenings
+1620393952365:list movies
+1620393985228:create movie Film action 125
+1620394002998:create screening Film terem "2012-11-30 16:53"
+1620394007138:list screenings
+1620400196944:sign in privileged admin admin
+1620400215199:create movie film action 125
+1620400236747:create movie film2 action 156
+1620400244655:create room terem 2 2
+1620400249974:create room terem2 2 2
+1620400266705:create screening film terem "2012-11-30 16:30"
+1620400283939:create screening film terem2 "2012-11-30 16:30"
+1620400377203:create screening film2 terem "2012-11-30 16:30"
+1620400399675:create screening film2 terem "2012-11-30 15:30"
+1620400444865:create screening film terem "2012-11-30 16:00"
+1620400527335:sign in privileged admin admin
+1620400550181:create movie film action 120
+1620400554611:create room terem 2 2
+1620400568134:create screening film terem "2012-11-30 16:00"
+1620400580480:create screening film terem "2012-11-30 15:00"
+1620400596431:create screening film terem "2012-11-30 14:00"
+1620400605046:create screening film terem "2012-11-30 13:59"
+1620400623643:list screenings
+1620400647119:create screening film terem "2012-11-30 10:00"
+1620400743508:sign in privileged admin admin
+1620400825273:create movie film action 120
+1620400831084:create room terem 2 2
+1620400855381:create screening film terem "2012-11-30 16:00"
+1620400862593:create screening film terem "2012-11-30 15:00"
+1620400866989:create screening film terem "2012-11-30 14:00"
+1620400878513:create screening film terem "2012-11-30 13:59"
+1620401025247:sign in privileged
+1620401033788:sign in privileged admin admin
+1620401098554:create movie film action 120
+1620401102920:create room terem 2 2
+1620401117543:create screening film terem "2012-11-30 16:00"
+1620401123858:create screening film terem "2012-11-30 15:00"
+1620401174173:create screening film terem "2012-11-30 16:01"
+1620401182947:create screening film terem "2012-11-30 18:00"
+1620401192103:create screening film terem "2012-11-30 18:01"
+1620401218583:create screening film terem "2012-11-30 17:00"
+1620401229546:create screening film terem "2012-11-30 19:00"
+1620401400565:sign in privileged admin admin
+1620401419409:create movie film action 120
+1620401423695:create room terem 2 2
+1620401439169:create screening film terem "2012-11-30 16:00"
+1620401443735:create screening film terem "2012-11-30 17:00"
+1620401449417:create screening film terem "2012-11-30 18:00"
+1620401461847:create screening film terem "2012-11-30 16:00"
+1620401469220:create screening film terem "2012-11-30 15:00"
+1620401999256:sign in privileged
+1620402005605:sign in privileged admin admin
+1620402038293:create film action 120movie
+1620402046138:create movie film action 120
+1620402052523:create room terem 2 2
+1620402057646:create screening film terem "2012-11-30 16:00"
+1620402061035:create screening film terem "2012-11-30 17:00"
+1620402064753:create screening film terem "2012-11-30 18:00"
+1620402072951:create screening film terem "2012-11-30 18:10"
+1620402079810:create screening film terem "2012-11-30 15:00"
+1620402084525:create screening film terem "2012-11-30 14:00"
+1620402091011:create screening film terem "2012-11-30 13:59"
+1620402279855:sign in privileged admin admin
+1620402316365:create movie film action 120
+1620402326363:create room terem 2 2
+1620402343531:create screening film terem "2012-11-30 16:00"
+1620402346512:create screening film terem "2012-11-30 17:00"
+1620402349510:create screening film terem "2012-11-30 15:00"
+1620402352788:create screening film terem "2012-11-30 14:00"
+1620402361605:create screening film terem "2012-11-30 18:00"
+1620402369329:create screening film terem "2012-12-30 17:00"
+1620402395447:create room terem2 2 2
+1620402446052:create screening film terem2 "2012-11-30 16:55"
+1620402455105:create screening film terem2 "2012-11-30 15:55"
+1620402459268:create screening film terem2 "2012-11-30 14:55"
+1620402487348:list screenings
+1620402551211:create screening film terem2 "2012-12-30 16:55"
+1620402577495:create screening film terem2 "2012-12-30 14:50"
+1620402641932:sign in privileged admin admin
+1620402651655:create movie film action 120
+1620402658151:create room terem 2 2
+1620402674651:create screening film terem "2012-11-30 16:55"
+1620402688064:create screening film terem "2012-11-30 14:55"
+1620402890191:sign in privilege admin admin
+1620402898532:sign in privileged admin admin
+1620402920616:create movie film action 120
+1620402931255:create room terem 2 2
+1620402975704:create screening film terem "2012-11-30 16:55"
+1620402985076:create screening film terem "2012-11-30 14:55"
+1620402996066:create screening film terem "2012-11-30 15:55"
+1620403001813:create screening film terem "2012-11-30 17:55"
+1620403005183:create screening film terem "2012-11-30 18:55"
+1620403036408:create room terem 2
+1620403043247:create room terem 2 2
+1620403051223:create screening film terem2 "2012-11-30 16:00"
+1620403072946:ceate room terem2 2 2
+1620403081438:create room terem2 2 2
+1620403089268:create screening film terem2 "2012-11-30 16:00"
+1620403100672:create screening film terem2 "2012-11-30 14:00"
+1620403112613:create screening film terem2 "2012-11-30 13:59"
+1620403153914:create screening film terem2 "2012-11-30 13:55"
+1620403160489:create screening film terem2 "2012-11-30 13:51"
+1620403165079:create screening film terem2 "2012-11-30 13:50"
+1620403375366:sign in privileged admin admin
+1620403381344:create room terem 2 2
+1620403386766:create movie film action 120
+1620403426773:create screening film action "2012-11-30 16:55"
+1620403436079:create screening film  "2012terem-11-30 16:55"
+1620403443574:create screening film terem "2012-11-30 16:55"
+1620403448974:list screenings
+1620403457048:create screening film action "2012-11-30 18:55"
+1620403465986:create screening film terem "2012-11-30 18:55"
+1620403515122:create screening film terem "2012-11-30 19:00"
+1620403667127:sign in privileged admin admin
+1620403672380:create room terem 2 2
+1620403678635:create movie film action 120
+1620403699227:create screening film terem "2012-11-30 15:55"
+1620403706571:create screening film terem "2012-11-30 14:55"
+1620403709603:create screening film terem "2012-11-30 13:55"
+1620403763660:create screening film terem "2012-11-30 13:56"
+1620403785418:delete screening film terem
+1620403807872:list screenings
+1620403822064:delete screening film terem
+1620403899717:delete screening film terem "2012-11-30 13:55"
+1620403903621:list screenings
+1620403936397:create screening film terem "2012-11-30 11:56"
+1620404003291:list screenings
+1620404018525:delete screening film terem "2012-11-30 11:56"
+1620404026955:delete screening film terem a
+1620404036508:create screening film terem "2012-11-30 15:55"
+1620404041632:create screening film terem "2012-11-30 15:56"
+1620404189804:create screening film terem "2012-11-30 1"
+1620404192565:create screening film terem "2012-11-30 15:55"
+1620404220266:list screenings
+1620404227404:create screening film terem "2012-11-30 15:56"
+1620404588818:list screenings
+1620404597177:document.getElementById("divFirst").scrollIntoView();
+1620404610420:create screening film terem "2012-11-30 13:55"
+1620404654042:delete screening film terem
+1620404668039:delete screening film terem "2012-11-30 13:55"
+1620404673701:delete sreening film terem a
+1620404684996:delete screening film terem a
+1620404701548:list screenings
+1620404708006:create screening film terem "2012-11-30 15:56"
+1620404719170:create screening film terem "2012-11-30 14:00"
+1620404730836:create screening film terem "2012-11-30 13:50"
+1620404743616:create screening film terem "2012-11-30 17:00"
+1620404856359:create movie cim action 15
+1620404865058:list screenings
+1620405000849:sign in privileged admin admin
+1620405005101:create room terem 2 2
+1620405012603:create movie film action 60
+1620405025727:create movie film2 action 125
+1620405034674:create movie film3 action 15
+1620405049519:create screening film terem "2012-11-30 16:00"
+1620405068908:create screening film terem "2012-11-30 15:00"
+1620405083630:create screening film terem "2012-11-30 15:10"
+1620405092258:create screening film terem "2012-11-30 15:20"
+1620405110100:list screenings
+1620405121470:create screening film terem "2012-11-30 15:55"
+1620405160458:create screening film terem "2012-11-30 16:30"
+1620405195281:create screening film3 terem "2012-11-30 16:15"
+1620405235227:create movie film2 terem "2012-11-30 15:00"
+1620405251171:create screening film2 terem "2012-11-30 15:00"
+1620405258399:list screening
+1620405262757:list screenings
+1620405424223:delete screening film terem a
+1620405429909:create screening film terem "2012-11-30 15:30"
+1620405434924:list screenings
+1620405448540:create screening film terem "2012-11-30 15:00"
+1620405468681:create screening film terem "2012-11-30 14:00"
+1620405474861:create screening film terem "2012-11-30 14:30"
+1620405498334:list screenings
+1620405504652:create screening film terem "2012-11-30 13:30"
+1620405713929:sign in privileged admin admin
+1620405947714:create movie Sántántangó drama 450
+1620405967056:create movie \\"Spirited Away
+1620405989499:create movie \\"Spirited Away\\" animation 125
+1620406029651:create movie "Spirited Away" animation 125
+1620406059082:create room Pedersoli 20 10
+1620406088131:create screening Sátántangó Pedersoli "2021-03-15 10:45"
+1620406103127:create screening Sántántangó Pedersoli "2021-03-15 10:45"
+1620406121823:create screening "Spirited Away" Pedersoli "2021-03-14 16:00"
+1620406128409:list screenings
+1620406205742:sign in privileged admin admin
+1620406222179:create room Pedersoli 20 10
+1620406250519:create movie Sátántangó action 450
+1620406263116:create movie Pedersoli action 125
+1620406292525:delete movie Pedersoli
+1620406306046:create movie "Spirited Away" action 125
+1620406327075:create screening Sátántangó Pedersoli "2021-03-15 11:00"
+1620406390120:create screening "Spirited Away" Pedersoli "2021-03-15 18:39"
+1620406409939:list screening
+1620406414099:list screenings
+1620406437244:delete screening Sátántangó Pedersoli a
+1620406453742:create screening Sátántangó Pedersoli "2021-03-15 10:45"
+1620406575878:list rooms
+1620406578054:list movies
+1620409442741:sign in privileged admin admin
+1620409447230:create room terem 2 2
+1620409454554:create movie film action 120
+1620409475162:create screening film terem "2012-11-30 16:00"
+1620409484993:create screening film terem "2012-11-30 15:00"
+1620409488899:create screening film terem "2012-11-30 14:00"
+1620409495154:create screening film terem "2012-11-30 17:00"
+1620409499522:create screening film terem "2012-11-30 18:00"
+1620409509881:create screening film terem "2012-11-30 16:00"
+1620409537366:delete screening film terem a
+1620409544297:create screening film terem "2012-11-30 16:30"
+1620409552612:create screening film terem "2012-11-30 15:00"
+1620409559462:create screening film terem "2012-11-30 18:00"

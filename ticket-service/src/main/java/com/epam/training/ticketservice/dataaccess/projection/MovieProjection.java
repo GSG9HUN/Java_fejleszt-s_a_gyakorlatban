@@ -11,7 +11,6 @@ public class MovieProjection {
     private int length;
 
 
-
     public MovieProjection(String name, String category, int length) {
         this.name = name;
         this.category = category;

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="hu"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>JpaMovieRepository.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ticket-service</a> &gt; <a href="index.source.html" class="el_package">com.epam.training.ticketservice.repository.impl</a> &gt; <span class="el_source">JpaMovieRepository.java</span></div><h1>JpaMovieRepository.java</h1><pre class="source lang-java linenums">package com.epam.training.ticketservice.repository.impl;
+
+import com.epam.training.ticketservice.modell.Movie;
+import com.epam.training.ticketservice.dataaccess.dao.MovieDao;
+import com.epam.training.ticketservice.dataaccess.projection.MovieProjection;
+import com.epam.training.ticketservice.exceptions.CrudException;
+import com.epam.training.ticketservice.repository.Repo;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+@Repository
+public class JpaMovieRepository implements Repo {
+
+    private final MovieDao movieDao;
+
+<span class="fc" id="L19">    public JpaMovieRepository(MovieDao movieDao) {</span>
+<span class="fc" id="L20">        this.movieDao = movieDao;</span>
+<span class="fc" id="L21">    }</span>
+
+    @Override
+    public List&lt;Movie&gt; getAll() {
+<span class="nc" id="L25">        List&lt;MovieProjection&gt; movieProjections = movieDao.findAll();</span>
+<span class="nc" id="L26">        return mapMovieProjections(movieProjections);</span>
+    }
+
+    @Override
+    public void save(Object movie) {
+<span class="nc" id="L31">        movieDao.save(mapMovie((Movie) movie));</span>
+<span class="nc" id="L32">    }</span>
+
+    @Override
+    public void update(String name, String movieCategory, String length) throws CrudException {
+
+<span class="fc" id="L37">        int movieLength = Integer.parseInt(length);</span>
+<span class="fc" id="L38">        Optional&lt;MovieProjection&gt; movie = findMovieByName(name);</span>
+<span class="fc bfc" id="L39" title="All 2 branches covered.">        if (movie.isPresent()) {</span>
+<span class="fc" id="L40">            movie.get().setCategory(movieCategory);</span>
+<span class="fc" id="L41">            movie.get().setLength(movieLength);</span>
+<span class="fc" id="L42">            movieDao.save(movie.get());</span>
+<span class="fc" id="L43">            return;</span>
+        }
+<span class="fc" id="L45">        throw new CrudException(&quot;Movie doesn't exist&quot;);</span>
+    }
+
+    @Override
+    public void delete(String name) throws CrudException {
+<span class="fc" id="L50">        Optional&lt;MovieProjection&gt; movie = findMovieByName(name);</span>
+<span class="fc bfc" id="L51" title="All 2 branches covered.">        if (movie.isPresent()) {</span>
+<span class="fc" id="L52">            movieDao.delete(movie.get());</span>
+<span class="fc" id="L53">            return;</span>
+        }
+<span class="fc" id="L55">        throw new CrudException(&quot;Movie doesn't exist&quot;);</span>
+    }
+
+    private MovieProjection mapMovie(Movie movie) {
+<span class="nc" id="L59">        return new MovieProjection(movie.getName(), movie.getCategory(), movie.getLength());</span>
+    }
+
+    private Movie mapMovie(MovieProjection movieProjection) {
+<span class="nc" id="L63">        return new Movie(movieProjection.getName(), movieProjection.getCategory(), movieProjection.getLength());</span>
+    }
+
+    private List&lt;Movie&gt; mapMovieProjections(List&lt;MovieProjection&gt; movieProjections) {
+<span class="nc" id="L67">        return movieProjections.stream()</span>
+<span class="nc" id="L68">                .map(this::mapMovie)</span>
+<span class="nc" id="L69">                .collect(Collectors.toList());</span>
+    }
+
+    private Optional&lt;MovieProjection&gt; findMovieByName(String movieName) {
+<span class="fc" id="L73">        List&lt;MovieProjection&gt; movieProjections = movieDao.findAll();</span>
+<span class="fc" id="L74">        return movieProjections.stream()</span>
+<span class="fc" id="L75">                .filter(movieProjection -&gt; movieProjection.getName().equals(movieName))</span>
+<span class="fc" id="L76">                .findFirst();</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

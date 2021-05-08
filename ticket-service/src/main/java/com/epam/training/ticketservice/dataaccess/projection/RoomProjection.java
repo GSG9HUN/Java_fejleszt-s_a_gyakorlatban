@@ -12,11 +12,10 @@ public class RoomProjection {
     private int colNum;
 
 
-
-    public RoomProjection(String name, int rowNum,int colNum) {
+    public RoomProjection(String name, int rowNum, int colNum) {
         this.name = name;
-        this.rowNum=rowNum;
-        this.colNum=colNum;
+        this.rowNum = rowNum;
+        this.colNum = colNum;
     }
 
     protected RoomProjection() {

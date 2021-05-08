@@ -1,8 +1,8 @@
 package com.epam.training.ticketservice.exceptions;
 
-public class EmptyListException extends Exception{
+public class EmptyListException extends Exception {
 
-    public EmptyListException(String message){
-        super(message);
+    public EmptyListException(String massage) {
+        super(massage);
     }
 }

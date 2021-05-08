@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="hu"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ScreenProjection.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ticket-service</a> &gt; <a href="index.source.html" class="el_package">com.epam.training.ticketservice.dataaccess.projection</a> &gt; <span class="el_source">ScreenProjection.java</span></div><h1>ScreenProjection.java</h1><pre class="source lang-java linenums">package com.epam.training.ticketservice.dataaccess.projection;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.UUID;
+
+@Entity
+public class ScreenProjection {
+
+    @Id
+    @GeneratedValue
+    private UUID id;
+    private String movieName;
+    private String roomName;
+    private LocalDateTime filmStart;
+    private LocalDateTime filmEnd;
+
+
+
+<span class="fc" id="L24">    public ScreenProjection(String movieName, String roomName, LocalDateTime filmStart, LocalDateTime filmEnd) {</span>
+<span class="fc" id="L25">        this.movieName = movieName;</span>
+<span class="fc" id="L26">        this.roomName = roomName;</span>
+<span class="fc" id="L27">        this.filmStart = filmStart;</span>
+<span class="fc" id="L28">        this.filmEnd = filmEnd;</span>
+<span class="fc" id="L29">    }</span>
+
+<span class="nc" id="L31">    protected ScreenProjection() {</span>
+<span class="nc" id="L32">    }</span>
+
+    public String getMovieName() {
+<span class="fc" id="L35">        return movieName;</span>
+    }
+
+    public void setMovieName(String movieName) {
+<span class="nc" id="L39">        this.movieName = movieName;</span>
+<span class="nc" id="L40">    }</span>
+
+    public String getRoomName() {
+<span class="fc" id="L43">        return roomName;</span>
+    }
+
+    public void setRoomName(String roomName) {
+<span class="nc" id="L47">        this.roomName = roomName;</span>
+<span class="nc" id="L48">    }</span>
+
+    public LocalDateTime getFilmStart() {
+<span class="fc" id="L51">        return filmStart;</span>
+    }
+
+    public void setFilmStart(LocalDateTime filmStart) {
+<span class="nc" id="L55">        this.filmStart = filmStart;</span>
+<span class="nc" id="L56">    }</span>
+
+    public LocalDateTime getFilmEnd() {
+<span class="nc" id="L59">        return filmEnd;</span>
+    }
+
+    public void setFilmEnd(LocalDateTime filmEnd) {
+<span class="nc" id="L63">        this.filmEnd = filmEnd;</span>
+<span class="nc" id="L64">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

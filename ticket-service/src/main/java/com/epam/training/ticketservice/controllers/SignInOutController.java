@@ -12,19 +12,17 @@ public class SignInOutController {
     SignInOutService signInOutService;
 
     @Autowired
-    SignInOutController(SignInOutService signInOutService){
-        this.signInOutService=signInOutService;
+    SignInOutController(SignInOutService signInOutService) {
+        this.signInOutService = signInOutService;
     }
 
 
-
-
-    @ShellMethod(value = "Sign in as an admin",key = "sign in privileged")
-    public String login(String username,String password){
+    @ShellMethod(value = "Sign in as an admin", key = "sign in privileged")
+    public String login(String username, String password) {
 
 
         try {
-            signInOutService.signIn(username,password);
+            signInOutService.signIn(username, password);
         } catch (SignInOutException e) {
             return e.getMessage();
         }
@@ -32,12 +30,12 @@ public class SignInOutController {
         return "You are signed in";
     }
 
-    @ShellMethod(value = "Log out from admin account",key = "sign out")
-    public String logout(){
+    @ShellMethod(value = "Log out from admin account", key = "sign out")
+    public String logout() {
 
         try {
             signInOutService.signOut();
-        }catch (Exception e){
+        } catch (Exception e) {
             return e.getMessage();
         }
         return null;

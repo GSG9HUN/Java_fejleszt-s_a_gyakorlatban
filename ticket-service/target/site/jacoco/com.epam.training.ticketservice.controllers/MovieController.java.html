@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="hu"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MovieController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ticket-service</a> &gt; <a href="index.source.html" class="el_package">com.epam.training.ticketservice.controllers</a> &gt; <span class="el_source">MovieController.java</span></div><h1>MovieController.java</h1><pre class="source lang-java linenums">package com.epam.training.ticketservice.controllers;
+
+import com.epam.training.ticketservice.modell.AdminAccount;
+import com.epam.training.ticketservice.modell.Movie;
+import com.epam.training.ticketservice.exceptions.EmptyListException;
+import com.epam.training.ticketservice.exceptions.CrudException;
+import com.epam.training.ticketservice.services.MovieService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.shell.standard.ShellComponent;
+import org.springframework.shell.standard.ShellMethod;
+
+import java.util.List;
+
+@ShellComponent
+public class MovieController {
+
+    MovieService movieService;
+
+    @Autowired
+<span class="fc" id="L20">    MovieController(MovieService movieService) {</span>
+<span class="fc" id="L21">        this.movieService = movieService;</span>
+<span class="fc" id="L22">    }</span>
+
+
+    @ShellMethod(value = &quot;Create movie&quot;, key = &quot;create movie&quot;)
+    public String createMovie(String movieName, String movieType, String moviesLength) {
+
+<span class="fc bfc" id="L28" title="All 2 branches covered.">        if (AdminAccount.isLogedIn()) {</span>
+<span class="fc" id="L29">            movieService.createMovie(movieName, movieType, moviesLength);</span>
+<span class="fc" id="L30">            return &quot;Movie created&quot;;</span>
+        }
+<span class="fc" id="L32">        return &quot;You are not signed in&quot;;</span>
+
+    }
+
+
+    @ShellMethod(value = &quot;List all movies&quot;, key = &quot;list movies&quot;)
+    public String list() {
+        List&lt;Movie&gt; movies;
+        try {
+<span class="fc" id="L41">            movies = movieService.listMovies();</span>
+<span class="fc" id="L42">        } catch (EmptyListException e) {</span>
+<span class="fc" id="L43">            return e.getMessage();</span>
+<span class="fc" id="L44">        }</span>
+<span class="fc bfc" id="L45" title="All 2 branches covered.">        for (Movie movie : movies) {</span>
+<span class="fc" id="L46">            System.out.println(&quot;&quot; + movie.getName() + &quot; (&quot;</span>
+<span class="fc" id="L47">                    + movie.getCategory() + &quot;, &quot; + movie.getLength() + &quot; minutes)&quot;);</span>
+<span class="fc" id="L48">        }</span>
+<span class="fc" id="L49">        return null;</span>
+    }
+
+
+    @ShellMethod(value = &quot;Update existing movie&quot;, key = &quot;update movie&quot;)
+    public String updateMovie(String movieName, String movieType, String moviesLength) {
+
+<span class="fc bfc" id="L56" title="All 2 branches covered.">        if (AdminAccount.isLogedIn()) {</span>
+            try {
+<span class="fc" id="L58">                movieService.updateMovie(movieName, movieType, moviesLength);</span>
+<span class="fc" id="L59">            } catch (CrudException e) {</span>
+<span class="fc" id="L60">                return e.getMessage();</span>
+<span class="fc" id="L61">            }</span>
+
+<span class="fc" id="L63">            return &quot;Movie updated&quot;;</span>
+        }
+
+<span class="fc" id="L66">        return &quot;You are not signed in&quot;;</span>
+
+    }
+
+
+    @ShellMethod(value = &quot;Delete existing movie&quot;, key = &quot;delete movie&quot;)
+    public String deleteMovie(String movieName) {
+
+<span class="fc bfc" id="L74" title="All 2 branches covered.">        if (AdminAccount.isLogedIn()) {</span>
+            try {
+<span class="fc" id="L76">                movieService.deleteMovie(movieName);</span>
+<span class="fc" id="L77">            } catch (CrudException e) {</span>
+<span class="fc" id="L78">                return e.getMessage();</span>
+<span class="fc" id="L79">            }</span>
+
+<span class="fc" id="L81">            return &quot;Movie deleted&quot;;</span>
+        }
+
+<span class="fc" id="L84">        return &quot;You are not signed in&quot;;</span>
+
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
