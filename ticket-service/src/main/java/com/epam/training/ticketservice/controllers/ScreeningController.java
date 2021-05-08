@@ -53,8 +53,8 @@ public class ScreeningController {
                 LocalDateTime date = screening.getFilmStart();
                 System.out.println(movie.getName() + " (" + movie.getCategory() + ", " + movie.getLength()
                         + " minutes), screened in room " + screening.getRoomName()
-                        + ", at " + date.getYear()+"-"+date.getMonth()+"-"+date.getDayOfMonth()
-                        +" "+date.getHour()+":"+date.getMinute());
+                        + ", at " + date.getYear() + "-" + date.getMonth() + "-" + date.getDayOfMonth()
+                        + " " + date.getHour() + ":" + date.getMinute());
             }
 
         } catch (EmptyListException | CrudException emptyList) {
@@ -67,7 +67,7 @@ public class ScreeningController {
     public String deleteScreening(String movieName, String roomName, String screeningDate) {
         if (AdminAccount.isLogedIn()) {
             try {
-                screeningService.deleteScreening(movieName, roomName ,screeningDate);
+                screeningService.deleteScreening(movieName, roomName, screeningDate);
             } catch (CrudException e) {
                 return e.getMessage();
             }
@@ -75,7 +75,6 @@ public class ScreeningController {
         }
         return "You are not signed in";
     }
-
 
 
 }

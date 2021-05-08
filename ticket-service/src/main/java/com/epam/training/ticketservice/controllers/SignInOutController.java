@@ -1,10 +1,13 @@
 package com.epam.training.ticketservice.controllers;
 
 import com.epam.training.ticketservice.exceptions.SignInOutException;
+import com.epam.training.ticketservice.modell.Account;
 import com.epam.training.ticketservice.services.SignInOutService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
+
+import java.util.List;
 
 @ShellComponent
 public class SignInOutController {
@@ -22,7 +25,7 @@ public class SignInOutController {
 
 
         try {
-            signInOutService.signIn(username, password);
+            signInOutService.signInPrivileged(username, password);
         } catch (SignInOutException e) {
             return e.getMessage();
         }
@@ -30,11 +33,23 @@ public class SignInOutController {
         return "You are signed in";
     }
 
+    @ShellMethod(value = "Login user", key="sign in")
+    public String signInUser(String username,String password) {
+
+        try {
+            signInOutService.signIn(username,password);
+        } catch (SignInOutException e) {
+            return e.getMessage();
+        }
+        return "You are signed in";
+    }
+
+
     @ShellMethod(value = "Log out from admin account", key = "sign out")
     public String logout() {
 
         try {
-            signInOutService.signOut();
+            signInOutService.signOutPrivileged();
         } catch (Exception e) {
             return e.getMessage();
         }

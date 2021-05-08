@@ -21,6 +21,7 @@ public class DescribeAccountController {
         if (describeAccountService.describe()) {
             return "Signed in with privileged account: " + AdminAccount.getUsername();
         }
+
         return "You are not signed in";
     }
 

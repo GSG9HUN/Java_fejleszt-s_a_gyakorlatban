@@ -105,7 +105,7 @@ public class JpaScreeningRepository {
 <span class="nc" id="L105">                .collect(Collectors.toList());</span>
     }
 
-    private Optional&lt;ScreenProjection&gt; findScreenByName(String movieName, String roomName ,String screeningDate) {
+    private Optional&lt;ScreenProjection&gt; findScreenByName(String movieName, String roomName, String screeningDate) {
 <span class="fc" id="L109">        List&lt;ScreenProjection&gt; screenProjections = screenDao.findAll();</span>
 <span class="fc" id="L110">        LocalDateTime localDateTime = mapLocalDateTime(screeningDate);</span>
 <span class="fc" id="L111">        return screenProjections.stream()</span>

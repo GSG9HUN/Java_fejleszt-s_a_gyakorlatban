@@ -5,10 +5,11 @@ import com.epam.training.ticketservice.exceptions.EmptyListException;
 import com.epam.training.ticketservice.exceptions.CrudException;
 import com.epam.training.ticketservice.repository.impl.JpaRoomRepository;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Component
+@Service
 public class RoomService {
     private JpaRoomRepository jpaRoomRepository;
 

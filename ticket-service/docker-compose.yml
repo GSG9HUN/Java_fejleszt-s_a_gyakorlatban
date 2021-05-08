@@ -1,11 +1,15 @@
+version: '3.1'
+
 services:
-  ticketservice-db:
-    image: mysql:8
-    ports:
-      - 3306:3306
+
+  db:
+    image: postgres:latest
     environment:
-      MYSQL_ROOT_PASSWORD: javaBeadando12
-      MYSQL_DATABASE: ticketservice
+      POSTGRES_PASSWORD: example
+      POSTGRES_USER: admin
+      POSTGRES_DB: ticket
+    ports:
+      - 5432:5432
 
   adminer:
     image: adminer

@@ -68,11 +68,6 @@ public class JpaRoomRepository implements Repo {
         return new Room(roomProjection.getName(), roomProjection.getRowNum(), roomProjection.getColNum());
     }
 
-    private List<Room> mapRoomProjection(List<RoomProjection> roomProjections) {
-        return roomProjections.stream()
-                .map(this::mapRoom)
-                .collect(Collectors.toList());
-    }
 
     private Optional<RoomProjection> findRoomByName(String roomName) {
         List<RoomProjection> roomProjections = roomDao.findAll();

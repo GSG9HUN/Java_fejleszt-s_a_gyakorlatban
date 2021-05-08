@@ -35,7 +35,7 @@ class SignInOutControllerTest {
         String result = null;
         SignInOutController signInOutController = new SignInOutController(signInOutService);
         //when
-        doThrow(new SignInOutException("Login failed due to incorrect credentials")).when(signInOutService).signIn(username,password);
+        doThrow(new SignInOutException("Login failed due to incorrect credentials")).when(signInOutService).signInPrivileged(username,password);
         result =signInOutController.login(username,password);
 
 
@@ -53,7 +53,7 @@ class SignInOutControllerTest {
         String result = null;
         SignInOutController signInOutController = new SignInOutController(signInOutService);
         //when
-        doThrow(new SignInOutException("You already logged in")).when(signInOutService).signIn(username,password);
+        doThrow(new SignInOutException("You already logged in")).when(signInOutService).signInPrivileged(username,password);
         result =signInOutController.login(username,password);
 
 
@@ -66,7 +66,7 @@ class SignInOutControllerTest {
         //given
         SignInOutController signInOutController = new SignInOutController(signInOutService);
         AdminAccount.setIsLogedIn(false);
-        doThrow(new SignInOutException("You are not logged in")).when(signInOutService).signOut();
+        doThrow(new SignInOutException("You are not logged in")).when(signInOutService).signOutPrivileged();
         String result = null;
         //when
         result =signInOutController.logout();
@@ -84,7 +84,7 @@ class SignInOutControllerTest {
         signInOutController.logout();
 
         //then
-        verify(signInOutService).signOut();
+        verify(signInOutService).signOutPrivileged();
     }
 
 }

@@ -53,8 +53,8 @@ public class ScreeningController {
 <span class="fc" id="L53">                LocalDateTime date = screening.getFilmStart();</span>
 <span class="fc" id="L54">                System.out.println(movie.getName() + &quot; (&quot; + movie.getCategory() + &quot;, &quot; + movie.getLength()</span>
 <span class="fc" id="L55">                        + &quot; minutes), screened in room &quot; + screening.getRoomName()</span>
-<span class="fc" id="L56">                        + &quot;, at &quot; + date.getYear()+&quot;-&quot;+date.getMonth()+&quot;-&quot;+date.getDayOfMonth()</span>
-<span class="fc" id="L57">                        +&quot; &quot;+date.getHour()+&quot;:&quot;+date.getMinute());</span>
+<span class="fc" id="L56">                        + &quot;, at &quot; + date.getYear() + &quot;-&quot; + date.getMonth() + &quot;-&quot; + date.getDayOfMonth()</span>
+<span class="fc" id="L57">                        + &quot; &quot; + date.getHour() + &quot;:&quot; + date.getMinute());</span>
 <span class="fc" id="L58">            }</span>
 
 <span class="fc" id="L60">        } catch (EmptyListException | CrudException emptyList) {</span>
@@ -67,7 +67,7 @@ public class ScreeningController {
     public String deleteScreening(String movieName, String roomName, String screeningDate) {
 <span class="fc bfc" id="L68" title="All 2 branches covered.">        if (AdminAccount.isLogedIn()) {</span>
             try {
-<span class="fc" id="L70">                screeningService.deleteScreening(movieName, roomName ,screeningDate);</span>
+<span class="fc" id="L70">                screeningService.deleteScreening(movieName, roomName, screeningDate);</span>
 <span class="fc" id="L71">            } catch (CrudException e) {</span>
 <span class="fc" id="L72">                return e.getMessage();</span>
 <span class="fc" id="L73">            }</span>
@@ -75,7 +75,6 @@ public class ScreeningController {
         }
 <span class="fc" id="L76">        return &quot;You are not signed in&quot;;</span>
     }
-
 
 
 }

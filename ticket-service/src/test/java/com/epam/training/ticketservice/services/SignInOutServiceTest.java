@@ -2,6 +2,7 @@ package com.epam.training.ticketservice.services;
 
 import com.epam.training.ticketservice.exceptions.SignInOutException;
 import com.epam.training.ticketservice.modell.AdminAccount;
+import com.epam.training.ticketservice.repository.impl.JpaAccountRepository;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
@@ -9,7 +10,8 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 class SignInOutServiceTest {
-    SignInOutService signInOutService = new SignInOutService();
+    JpaAccountRepository jpaAccountRepository = Mockito.mock(JpaAccountRepository.class);
+    SignInOutService signInOutService = new SignInOutService(jpaAccountRepository);
 
     @Test
     public void testSignInMethodWithInvalidUsername(){
@@ -20,7 +22,7 @@ class SignInOutServiceTest {
         String result =null;
         //when
         try {
-            signInOutService.signIn(username,password);
+            signInOutService.signInPrivileged(username,password);
         } catch (SignInOutException e) {
             result = e.getMessage();
         }
@@ -39,7 +41,7 @@ class SignInOutServiceTest {
         String result =null;
         //when
         try {
-            signInOutService.signIn(username,password);
+            signInOutService.signInPrivileged(username,password);
         } catch (SignInOutException e) {
             result = e.getMessage();
         }
@@ -56,7 +58,7 @@ class SignInOutServiceTest {
         String result =null;
         //when
         try {
-            signInOutService.signIn(username,password);
+            signInOutService.signInPrivileged(username,password);
         } catch (SignInOutException e) {
             result = e.getMessage();
         }
@@ -71,7 +73,7 @@ class SignInOutServiceTest {
         String password = "admin";
         AdminAccount.setIsLogedIn(false);
         //when
-        signInOutService.signIn(username,password);
+        signInOutService.signInPrivileged(username,password);
 
         //then
         assertTrue(AdminAccount.isLogedIn());
@@ -86,7 +88,7 @@ class SignInOutServiceTest {
         AdminAccount.setIsLogedIn(true);
         //when
         try {
-            signInOutService.signIn(username,password);
+            signInOutService.signInPrivileged(username,password);
         } catch (SignInOutException e) {
             result = e.getMessage();
         }
@@ -100,7 +102,7 @@ class SignInOutServiceTest {
         //given
         AdminAccount.setIsLogedIn(true);
         //when
-        signInOutService.signOut();
+        signInOutService.signOutPrivileged();
         //then
         assertFalse(AdminAccount.isLogedIn());
     }
@@ -112,7 +114,7 @@ class SignInOutServiceTest {
         String result = null;
         //when
         try {
-            signInOutService.signOut();
+            signInOutService.signOutPrivileged();
         } catch (SignInOutException e) {
             result = e.getMessage();
         }

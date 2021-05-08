@@ -461,3 +461,64 @@
 1620409544297:create screening film terem "2012-11-30 16:30"
 1620409552612:create screening film terem "2012-11-30 15:00"
 1620409559462:create screening film terem "2012-11-30 18:00"
+1620466344468:sign up user pass
+1620466418542:stakctrace
+1620466423636:stacktrace
+1620466444174:ctacktrace
+1620466448960:stacktrace
+1620466454986:sing up user pass
+1620466460431:sign up user pass
+1620466463748:stacktrace
+1620466769777:sign up user user
+1620466778136:sign up user admin
+1620466784387:sign in user user
+1620466858368:describe account
+1620468923002:sign in privileged admin admin
+1620469002193:sign up user user
+1620469068179:sign up user admin
+1620469074857:sign in admin admin
+1620469079843:sign in user sandor
+1620469084996:sign in admin sandor
+1620469088768:sign in user user
+1620469177509:sign up user user
+1620469185424:sign in user user
+1620469287944:sign up user user
+1620469291475:sign in user user
+1620469424914:sign up user user
+1620469428394:sign in user user
+1620469445330:describe account
+1620469450000:sing out
+1620469782951:list accounts
+1620469794484:sign up user user
+1620469798674:sign in user user
+1620469802300:list accounts
+1620470112104:sign up user user
+1620470115456:sign in user user
+1620470369063:sign up user user
+1620470372782:sign in user user
+1620470384632:describe account
+1620500327179:sign up user user
+1620500348292:sign in privileged admin admin
+1620500362427:create room Terem 2 2
+1620500372394:create movie Film Action 125
+1620500376384:sign out
+1620500382310:sign in user user
+1620500390730:sign out
+1620500399944:exit
+1620500420960:list movies
+1620500426393:list rooms
+1620500541705:sign in privileged admin admin
+1620500558485:create movie Film Action 125
+1620500574253:list movies
+1620500577113:exit
+1620500696039:sign in privileged
+1620500702166:sign in privileged admin admin
+1620500709601:create movie Film action 156
+1620500716448:create room Terem 5 6
+1620500732068:create screening Film Terem "2012-11-30 16:00"
+1620500740840:exit
+1620500758286:list movies
+1620503661846:sign in privileged admin admin
+1620503686727:create account
+1620503702171:sign up user user
+1620503710799:exit

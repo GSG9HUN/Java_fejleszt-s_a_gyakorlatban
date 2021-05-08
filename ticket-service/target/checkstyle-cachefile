@@ -1,10 +1,12 @@
-#Sat May 08 09:55:26 CEST 2021
+#Sat May 08 10:00:24 CEST 2021
 C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\Application.java=1620125391702
 C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\repository\\Repo.java=1620305134617
 C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\repository\\impl\\JpaMovieRepository.java=1620324266479
 C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\dataaccess\\projection\\MovieProjection.java=1620125391672
 C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\repository\\impl\\JpaRoomRepository.java=1620324245093
+C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\controllers\\ScreeningController.java=1620460818604
 C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\modell\\Movie.java=1620125523006
+C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\repository\\impl\\JpaScreeningRepository.java=1620460782203
 C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service\\src\\main\\resources\\application.properties=1619956059204
 C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\dataaccess\\projection\\RoomProjection.java=1620125391549
 C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\exceptions\\CrudException.java=1620395728903
