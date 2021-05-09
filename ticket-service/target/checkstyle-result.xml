@@ -2,6 +2,10 @@
 <checkstyle version="8.29">
 <file name="C:\Users\ssgam\Documents\GitHub\Java_fejlesztes_a_gyakorlatban\ticket-service\src\main\java\com\epam\training\ticketservice\Application.java">
 </file>
+<file name="C:\Users\ssgam\Documents\GitHub\Java_fejlesztes_a_gyakorlatban\ticket-service\src\main\java\com\epam\training\ticketservice\controllers\BookingController.java">
+</file>
+<file name="C:\Users\ssgam\Documents\GitHub\Java_fejlesztes_a_gyakorlatban\ticket-service\src\main\java\com\epam\training\ticketservice\controllers\CreateAccountController.java">
+</file>
 <file name="C:\Users\ssgam\Documents\GitHub\Java_fejlesztes_a_gyakorlatban\ticket-service\src\main\java\com\epam\training\ticketservice\controllers\DescribeAccountController.java">
 </file>
 <file name="C:\Users\ssgam\Documents\GitHub\Java_fejlesztes_a_gyakorlatban\ticket-service\src\main\java\com\epam\training\ticketservice\controllers\MovieController.java">
@@ -12,17 +16,27 @@
 </file>
 <file name="C:\Users\ssgam\Documents\GitHub\Java_fejlesztes_a_gyakorlatban\ticket-service\src\main\java\com\epam\training\ticketservice\controllers\SignInOutController.java">
 </file>
+<file name="C:\Users\ssgam\Documents\GitHub\Java_fejlesztes_a_gyakorlatban\ticket-service\src\main\java\com\epam\training\ticketservice\dataaccess\dao\AccountDao.java">
+</file>
+<file name="C:\Users\ssgam\Documents\GitHub\Java_fejlesztes_a_gyakorlatban\ticket-service\src\main\java\com\epam\training\ticketservice\dataaccess\dao\BookDao.java">
+</file>
 <file name="C:\Users\ssgam\Documents\GitHub\Java_fejlesztes_a_gyakorlatban\ticket-service\src\main\java\com\epam\training\ticketservice\dataaccess\dao\MovieDao.java">
 </file>
 <file name="C:\Users\ssgam\Documents\GitHub\Java_fejlesztes_a_gyakorlatban\ticket-service\src\main\java\com\epam\training\ticketservice\dataaccess\dao\RoomDao.java">
 </file>
 <file name="C:\Users\ssgam\Documents\GitHub\Java_fejlesztes_a_gyakorlatban\ticket-service\src\main\java\com\epam\training\ticketservice\dataaccess\dao\ScreenDao.java">
 </file>
+<file name="C:\Users\ssgam\Documents\GitHub\Java_fejlesztes_a_gyakorlatban\ticket-service\src\main\java\com\epam\training\ticketservice\dataaccess\projection\AccountProjection.java">
+</file>
+<file name="C:\Users\ssgam\Documents\GitHub\Java_fejlesztes_a_gyakorlatban\ticket-service\src\main\java\com\epam\training\ticketservice\dataaccess\projection\BookProjection.java">
+</file>
 <file name="C:\Users\ssgam\Documents\GitHub\Java_fejlesztes_a_gyakorlatban\ticket-service\src\main\java\com\epam\training\ticketservice\dataaccess\projection\MovieProjection.java">
 </file>
 <file name="C:\Users\ssgam\Documents\GitHub\Java_fejlesztes_a_gyakorlatban\ticket-service\src\main\java\com\epam\training\ticketservice\dataaccess\projection\RoomProjection.java">
 </file>
 <file name="C:\Users\ssgam\Documents\GitHub\Java_fejlesztes_a_gyakorlatban\ticket-service\src\main\java\com\epam\training\ticketservice\dataaccess\projection\ScreenProjection.java">
+</file>
+<file name="C:\Users\ssgam\Documents\GitHub\Java_fejlesztes_a_gyakorlatban\ticket-service\src\main\java\com\epam\training\ticketservice\exceptions\BookException.java">
 </file>
 <file name="C:\Users\ssgam\Documents\GitHub\Java_fejlesztes_a_gyakorlatban\ticket-service\src\main\java\com\epam\training\ticketservice\exceptions\CrudException.java">
 </file>
@@ -32,13 +46,23 @@
 </file>
 <file name="C:\Users\ssgam\Documents\GitHub\Java_fejlesztes_a_gyakorlatban\ticket-service\src\main\java\com\epam\training\ticketservice\exceptions\SignInOutException.java">
 </file>
+<file name="C:\Users\ssgam\Documents\GitHub\Java_fejlesztes_a_gyakorlatban\ticket-service\src\main\java\com\epam\training\ticketservice\modell\Account.java">
+</file>
 <file name="C:\Users\ssgam\Documents\GitHub\Java_fejlesztes_a_gyakorlatban\ticket-service\src\main\java\com\epam\training\ticketservice\modell\AdminAccount.java">
+</file>
+<file name="C:\Users\ssgam\Documents\GitHub\Java_fejlesztes_a_gyakorlatban\ticket-service\src\main\java\com\epam\training\ticketservice\modell\Book.java">
 </file>
 <file name="C:\Users\ssgam\Documents\GitHub\Java_fejlesztes_a_gyakorlatban\ticket-service\src\main\java\com\epam\training\ticketservice\modell\Movie.java">
 </file>
 <file name="C:\Users\ssgam\Documents\GitHub\Java_fejlesztes_a_gyakorlatban\ticket-service\src\main\java\com\epam\training\ticketservice\modell\Room.java">
 </file>
 <file name="C:\Users\ssgam\Documents\GitHub\Java_fejlesztes_a_gyakorlatban\ticket-service\src\main\java\com\epam\training\ticketservice\modell\Screening.java">
+</file>
+<file name="C:\Users\ssgam\Documents\GitHub\Java_fejlesztes_a_gyakorlatban\ticket-service\src\main\java\com\epam\training\ticketservice\modell\Seats.java">
+</file>
+<file name="C:\Users\ssgam\Documents\GitHub\Java_fejlesztes_a_gyakorlatban\ticket-service\src\main\java\com\epam\training\ticketservice\repository\impl\JpaAccountRepository.java">
+</file>
+<file name="C:\Users\ssgam\Documents\GitHub\Java_fejlesztes_a_gyakorlatban\ticket-service\src\main\java\com\epam\training\ticketservice\repository\impl\JpaBookRepository.java">
 </file>
 <file name="C:\Users\ssgam\Documents\GitHub\Java_fejlesztes_a_gyakorlatban\ticket-service\src\main\java\com\epam\training\ticketservice\repository\impl\JpaMovieRepository.java">
 </file>
@@ -47,6 +71,10 @@
 <file name="C:\Users\ssgam\Documents\GitHub\Java_fejlesztes_a_gyakorlatban\ticket-service\src\main\java\com\epam\training\ticketservice\repository\impl\JpaScreeningRepository.java">
 </file>
 <file name="C:\Users\ssgam\Documents\GitHub\Java_fejlesztes_a_gyakorlatban\ticket-service\src\main\java\com\epam\training\ticketservice\repository\Repo.java">
+</file>
+<file name="C:\Users\ssgam\Documents\GitHub\Java_fejlesztes_a_gyakorlatban\ticket-service\src\main\java\com\epam\training\ticketservice\services\BookService.java">
+</file>
+<file name="C:\Users\ssgam\Documents\GitHub\Java_fejlesztes_a_gyakorlatban\ticket-service\src\main\java\com\epam\training\ticketservice\services\CreateAccountService.java">
 </file>
 <file name="C:\Users\ssgam\Documents\GitHub\Java_fejlesztes_a_gyakorlatban\ticket-service\src\main\java\com\epam\training\ticketservice\services\DescribeAccountService.java">
 </file>
@@ -59,6 +87,8 @@
 <file name="C:\Users\ssgam\Documents\GitHub\Java_fejlesztes_a_gyakorlatban\ticket-service\src\main\java\com\epam\training\ticketservice\services\SignInOutService.java">
 </file>
 <file name="C:\Users\ssgam\Documents\GitHub\Java_fejlesztes_a_gyakorlatban\ticket-service\src\main\java\com\epam\training\ticketservice\TicketServicePromptProvider.java">
+</file>
+<file name="C:\Users\ssgam\Documents\GitHub\Java_fejlesztes_a_gyakorlatban\ticket-service\src\main\resources\application-ci.properties">
 </file>
 <file name="C:\Users\ssgam\Documents\GitHub\Java_fejlesztes_a_gyakorlatban\ticket-service\src\main\resources\application.properties">
 </file>

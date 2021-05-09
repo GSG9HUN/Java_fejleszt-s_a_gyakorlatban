@@ -1,6 +1,7 @@
 package com.epam.training.ticketservice.controllers;
 
 import com.epam.training.ticketservice.modell.AdminAccount;
+import com.epam.training.ticketservice.services.BookService;
 import com.epam.training.ticketservice.services.DescribeAccountService;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -11,11 +12,12 @@ import static org.mockito.Mockito.when;
 class DescribeAccountControllerTest {
 
     DescribeAccountService describeAccountService = Mockito.mock(DescribeAccountService.class);
+    BookService bookService = Mockito.mock(BookService.class);
 
     @Test
     public void testDescribeAccountMethodButUserNotLogged(){
         //given
-        DescribeAccountController describeAccountController = new DescribeAccountController(describeAccountService);
+        DescribeAccountController describeAccountController = new DescribeAccountController(describeAccountService, bookService);
         when(describeAccountService.describe()).thenReturn(false);
         //when
         String result = describeAccountController.describeAccount();
@@ -27,7 +29,7 @@ class DescribeAccountControllerTest {
     @Test
     public void testDescribeAccountMethod(){
         //given
-        DescribeAccountController describeAccountController = new DescribeAccountController(describeAccountService);
+        DescribeAccountController describeAccountController = new DescribeAccountController(describeAccountService, bookService);
         when(describeAccountService.describe()).thenReturn(true);
         //when
         String result = describeAccountController.describeAccount();

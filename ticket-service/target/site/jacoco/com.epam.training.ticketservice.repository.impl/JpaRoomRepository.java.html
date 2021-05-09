@@ -68,17 +68,12 @@ public class JpaRoomRepository implements Repo {
 <span class="nc" id="L68">        return new Room(roomProjection.getName(), roomProjection.getRowNum(), roomProjection.getColNum());</span>
     }
 
-    private List&lt;Room&gt; mapRoomProjection(List&lt;RoomProjection&gt; roomProjections) {
-<span class="nc" id="L72">        return roomProjections.stream()</span>
-<span class="nc" id="L73">                .map(this::mapRoom)</span>
-<span class="nc" id="L74">                .collect(Collectors.toList());</span>
-    }
 
     private Optional&lt;RoomProjection&gt; findRoomByName(String roomName) {
-<span class="fc" id="L78">        List&lt;RoomProjection&gt; roomProjections = roomDao.findAll();</span>
-<span class="fc" id="L79">        return roomProjections.stream()</span>
-<span class="fc" id="L80">                .filter(roomProjection -&gt; roomProjection.getName().equals(roomName))</span>
-<span class="fc" id="L81">                .findFirst();</span>
+<span class="fc" id="L73">        List&lt;RoomProjection&gt; roomProjections = roomDao.findAll();</span>
+<span class="fc" id="L74">        return roomProjections.stream()</span>
+<span class="fc" id="L75">                .filter(roomProjection -&gt; roomProjection.getName().equals(roomName))</span>
+<span class="fc" id="L76">                .findFirst();</span>
     }
 
 }

@@ -1,8 +1,6 @@
 com\epam\training\ticketservice\repository\impl\JpaScreeningRepositoryTest.class
 com\epam\training\ticketservice\controllers\DescribeAccountControllerTest.class
 com\epam\training\ticketservice\controllers\RoomControllerTest.class
-com\epam\training\ticketservice\repository\impl\JpaRoomRepositoryTest.class
-com\epam\training\ticketservice\services\RoomServiceTest.class
 com\epam\training\ticketservice\controllers\ScreeningControllerTest.class
 com\epam\training\ticketservice\repository\impl\JpaMovieRepositoryTest.class
 com\epam\training\ticketservice\services\ScreeningServiceTest.class
@@ -10,3 +8,7 @@ com\epam\training\ticketservice\controllers\SignInOutControllerTest.class
 com\epam\training\ticketservice\services\MovieServiceTest.class
 com\epam\training\ticketservice\controllers\MovieControllerTest.class
 com\epam\training\ticketservice\services\SignInOutServiceTest.class
+com\epam\training\ticketservice\repository\impl\JpaRoomRepositoryTest.class
+com\epam\training\ticketservice\services\RoomServiceTest.class
+com\epam\training\ticketservice\repository\impl\JpaAccountRepositoryTest.class
+com\epam\training\ticketservice\repository\impl\JpaBookRepositoryTest.class

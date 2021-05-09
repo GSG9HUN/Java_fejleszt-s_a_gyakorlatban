@@ -9,108 +9,110 @@ import com.epam.training.ticketservice.exceptions.EmptyListException;
 import com.epam.training.ticketservice.repository.impl.JpaScreeningRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Component
+@Service
 public class ScreeningService {
 
     private JpaScreeningRepository jpaScrreningRepository;
 
     @Autowired
-<span class="fc" id="L21">    public ScreeningService(JpaScreeningRepository jpaScrreningRepository) {</span>
-<span class="fc" id="L22">        this.jpaScrreningRepository = jpaScrreningRepository;</span>
-<span class="fc" id="L23">    }</span>
+<span class="fc" id="L23">    public ScreeningService(JpaScreeningRepository jpaScrreningRepository) {</span>
+<span class="fc" id="L24">        this.jpaScrreningRepository = jpaScrreningRepository;</span>
+<span class="fc" id="L25">    }</span>
 
     public void createScreening(String movieName, String roomName, String screeningDate)
             throws CrudException, OverlappingException {
-<span class="nc" id="L27">        LocalDateTime localDate = jpaScrreningRepository.mapLocalDateTime(screeningDate);</span>
-<span class="nc" id="L28">        Movie movie = findMovie(movieName);</span>
-<span class="nc" id="L29">        List&lt;Screening&gt; screeningList = jpaScrreningRepository.findAllScreeningAtCurrentDate(localDate, roomName);</span>
-<span class="nc" id="L30">        Screening newScreening =</span>
-<span class="nc" id="L31">                new Screening(movieName, roomName, localDate, localDate.plusMinutes(movie.getLength()));</span>
-<span class="nc bnc" id="L32" title="All 2 branches missed.">        if (screeningList.isEmpty()) {</span>
-<span class="nc" id="L33">            jpaScrreningRepository.save(newScreening);</span>
-<span class="nc" id="L34">            return;</span>
+<span class="nc" id="L29">        LocalDateTime localDate = jpaScrreningRepository.mapLocalDateTime(screeningDate);</span>
+<span class="nc" id="L30">        Movie movie = findMovie(movieName);</span>
+<span class="nc" id="L31">        List&lt;Screening&gt; screeningList = jpaScrreningRepository.findAllScreeningAtCurrentDate(localDate, roomName);</span>
+<span class="nc" id="L32">        Screening newScreening =</span>
+<span class="nc" id="L33">                new Screening(movieName, roomName, localDate, localDate.plusMinutes(movie.getLength()));</span>
+<span class="nc bnc" id="L34" title="All 2 branches missed.">        if (screeningList.isEmpty()) {</span>
+<span class="nc" id="L35">            jpaScrreningRepository.save(newScreening);</span>
+<span class="nc" id="L36">            return;</span>
         }
-<span class="nc bnc" id="L36" title="All 2 branches missed.">        for (Screening screening : screeningList) {</span>
-<span class="nc bnc" id="L37" title="All 2 branches missed.">            if (haveOverlapping(screening, newScreening)) {</span>
-<span class="nc" id="L38">                throw new OverlappingException(&quot;There is an overlapping screening&quot;);</span>
+<span class="nc bnc" id="L38" title="All 2 branches missed.">        for (Screening screening : screeningList) {</span>
+<span class="nc bnc" id="L39" title="All 2 branches missed.">            if (haveOverlapping(screening, newScreening)) {</span>
+<span class="nc" id="L40">                throw new OverlappingException(&quot;There is an overlapping screening&quot;);</span>
             }
-<span class="nc bnc" id="L40" title="All 2 branches missed.">            if (isThereABreak(screening, newScreening)) {</span>
-<span class="nc" id="L41">                throw new OverlappingException(&quot;This would start in the break period &quot;</span>
+<span class="nc bnc" id="L42" title="All 2 branches missed.">            if (isThereABreak(screening, newScreening)) {</span>
+<span class="nc" id="L43">                throw new OverlappingException(&quot;This would start in the break period &quot;</span>
                         + &quot;after another screening in this room&quot;);
             }
-<span class="nc" id="L44">        }</span>
-<span class="nc" id="L45">        jpaScrreningRepository.save(newScreening);</span>
-<span class="nc" id="L46">    }</span>
+<span class="nc" id="L46">        }</span>
+<span class="nc" id="L47">        jpaScrreningRepository.save(newScreening);</span>
+<span class="nc" id="L48">    }</span>
 
     public boolean isThereABreak(Screening screening, Screening newScreening) {
-<span class="fc" id="L49">        LocalDateTime filmStartDate = screening.getFilmStart();</span>
-<span class="fc" id="L50">        LocalDateTime filmEndDate = screening.getFilmEnd();</span>
-<span class="fc" id="L51">        LocalDateTime newFilmStartDate = newScreening.getFilmStart();</span>
-<span class="fc" id="L52">        LocalDateTime newFilmEndDate = newScreening.getFilmEnd();</span>
+<span class="fc" id="L51">        LocalDateTime filmStartDate = screening.getFilmStart();</span>
+<span class="fc" id="L52">        LocalDateTime filmEndDate = screening.getFilmEnd();</span>
+<span class="fc" id="L53">        LocalDateTime newFilmStartDate = newScreening.getFilmStart();</span>
+<span class="fc" id="L54">        LocalDateTime newFilmEndDate = newScreening.getFilmEnd();</span>
 
-<span class="fc bfc" id="L54" title="All 2 branches covered.">        if (filmEndDate.isBefore(newFilmStartDate)</span>
-<span class="fc bfc" id="L55" title="All 2 branches covered.">                &amp;&amp; newFilmStartDate.isBefore(filmEndDate.plusMinutes(10))) {</span>
-<span class="fc" id="L56">            return true;</span>
+<span class="fc bfc" id="L56" title="All 2 branches covered.">        if (filmEndDate.isBefore(newFilmStartDate)</span>
+<span class="fc bfc" id="L57" title="All 2 branches covered.">                &amp;&amp; newFilmStartDate.isBefore(filmEndDate.plusMinutes(10))) {</span>
+<span class="fc" id="L58">            return true;</span>
         }
 
-<span class="fc bfc" id="L59" title="All 2 branches covered.">        if (newFilmEndDate.isBefore(filmStartDate)</span>
-<span class="pc bpc" id="L60" title="1 of 2 branches missed.">                &amp;&amp; filmStartDate.isBefore(newFilmEndDate.plusMinutes(10))) {</span>
-<span class="fc" id="L61">            return true;</span>
+<span class="fc bfc" id="L61" title="All 2 branches covered.">        if (newFilmEndDate.isBefore(filmStartDate)</span>
+<span class="pc bpc" id="L62" title="1 of 2 branches missed.">                &amp;&amp; filmStartDate.isBefore(newFilmEndDate.plusMinutes(10))) {</span>
+<span class="fc" id="L63">            return true;</span>
         }
 
-<span class="fc" id="L64">        return false;</span>
+<span class="fc" id="L66">        return false;</span>
     }
 
     public boolean haveOverlapping(Screening screening, Screening newScreening) {
-<span class="fc" id="L68">        LocalDateTime filmStartDate = screening.getFilmStart();</span>
-<span class="fc" id="L69">        LocalDateTime filmEndDate = screening.getFilmEnd();</span>
-<span class="fc" id="L70">        LocalDateTime newFilmStartDate = newScreening.getFilmStart();</span>
-<span class="fc" id="L71">        LocalDateTime newFilmEndDate = newScreening.getFilmEnd();</span>
-<span class="fc bfc" id="L72" title="All 2 branches covered.">        if (filmStartDate.equals(newFilmStartDate)</span>
-<span class="pc bpc" id="L73" title="1 of 2 branches missed.">                || filmEndDate.equals(newFilmEndDate)) {</span>
-<span class="fc" id="L74">            return true;</span>
+<span class="fc" id="L70">        LocalDateTime filmStartDate = screening.getFilmStart();</span>
+<span class="fc" id="L71">        LocalDateTime filmEndDate = screening.getFilmEnd();</span>
+<span class="fc" id="L72">        LocalDateTime newFilmStartDate = newScreening.getFilmStart();</span>
+<span class="fc" id="L73">        LocalDateTime newFilmEndDate = newScreening.getFilmEnd();</span>
+<span class="fc bfc" id="L74" title="All 2 branches covered.">        if (filmStartDate.equals(newFilmStartDate)</span>
+<span class="pc bpc" id="L75" title="1 of 2 branches missed.">                || filmEndDate.equals(newFilmEndDate)) {</span>
+<span class="fc" id="L76">            return true;</span>
         }
 
-<span class="fc bfc" id="L77" title="All 2 branches covered.">        if ((newFilmStartDate.isBefore(filmStartDate)</span>
-<span class="pc bpc" id="L78" title="1 of 2 branches missed.">                &amp;&amp; newFilmEndDate.isAfter(filmEndDate))</span>
-<span class="fc bfc" id="L79" title="All 2 branches covered.">                || (filmStartDate.isBefore(newFilmStartDate)</span>
-<span class="pc bpc" id="L80" title="1 of 2 branches missed.">                &amp;&amp; filmEndDate.isAfter(newFilmEndDate))) {</span>
-<span class="nc" id="L81">            return true;</span>
+<span class="fc bfc" id="L79" title="All 2 branches covered.">        if ((newFilmStartDate.isBefore(filmStartDate)</span>
+<span class="pc bpc" id="L80" title="1 of 2 branches missed.">                &amp;&amp; newFilmEndDate.isAfter(filmEndDate))</span>
+<span class="fc bfc" id="L81" title="All 2 branches covered.">                || (filmStartDate.isBefore(newFilmStartDate)</span>
+<span class="pc bpc" id="L82" title="1 of 2 branches missed.">                &amp;&amp; filmEndDate.isAfter(newFilmEndDate))) {</span>
+<span class="nc" id="L83">            return true;</span>
         }
 
-<span class="fc bfc" id="L84" title="All 2 branches covered.">        if (newFilmStartDate.isBefore(filmStartDate)</span>
-<span class="pc bpc" id="L85" title="1 of 2 branches missed.">                &amp;&amp; newFilmEndDate.isAfter(filmStartDate)) {</span>
-<span class="fc" id="L86">            return true;</span>
+<span class="fc bfc" id="L86" title="All 2 branches covered.">        if (newFilmStartDate.isBefore(filmStartDate)</span>
+<span class="pc bpc" id="L87" title="1 of 2 branches missed.">                &amp;&amp; newFilmEndDate.isAfter(filmStartDate)) {</span>
+<span class="fc" id="L88">            return true;</span>
         }
 
-<span class="pc bpc" id="L89" title="1 of 2 branches missed.">        if (filmStartDate.isBefore(newFilmStartDate)</span>
-<span class="fc bfc" id="L90" title="All 2 branches covered.">                &amp;&amp; newFilmStartDate.isBefore(filmEndDate)) {</span>
-<span class="fc" id="L91">            return true;</span>
+<span class="pc bpc" id="L91" title="1 of 2 branches missed.">        if (filmStartDate.isBefore(newFilmStartDate)</span>
+<span class="fc bfc" id="L92" title="All 2 branches covered.">                &amp;&amp; newFilmStartDate.isBefore(filmEndDate)) {</span>
+<span class="fc" id="L93">            return true;</span>
         }
-<span class="fc" id="L93">        return false;</span>
+<span class="fc" id="L95">        return false;</span>
     }
 
     public List&lt;Screening&gt; listScreenings() throws EmptyListException {
-<span class="fc" id="L97">        List&lt;Screening&gt; screening = jpaScrreningRepository.getAll();</span>
-<span class="fc bfc" id="L98" title="All 2 branches covered.">        if (screening.isEmpty()) {</span>
-<span class="fc" id="L99">            throw new EmptyListException(&quot;Theres no screening at the moment&quot;);</span>
+<span class="fc" id="L99">        List&lt;Screening&gt; screening = jpaScrreningRepository.getAll();</span>
+<span class="fc bfc" id="L100" title="All 2 branches covered.">        if (screening.isEmpty()) {</span>
+<span class="fc" id="L101">            throw new EmptyListException(&quot;Theres no screening at the moment&quot;);</span>
         }
-<span class="fc" id="L101">        return screening;</span>
+<span class="fc" id="L103">        return screening;</span>
     }
 
     public void deleteScreening(String movieName, String roomName, String screeningDate) throws CrudException {
-<span class="nc" id="L105">        jpaScrreningRepository.delete(movieName, roomName,screeningDate);</span>
-<span class="nc" id="L106">    }</span>
+<span class="nc" id="L107">        jpaScrreningRepository.delete(movieName, roomName,screeningDate);</span>
+<span class="nc" id="L108">    }</span>
 
     public Movie findMovie(String movieName) throws CrudException {
-<span class="nc" id="L109">        return jpaScrreningRepository.findMovie(movieName);</span>
+<span class="nc" id="L111">        return jpaScrreningRepository.findMovie(movieName);</span>
     }
 
     public Room findRoom(String roomName) throws CrudException {
-<span class="nc" id="L113">        return jpaScrreningRepository.findRoom(roomName);</span>
+<span class="nc" id="L115">        return jpaScrreningRepository.findRoom(roomName);</span>
     }
 
 }

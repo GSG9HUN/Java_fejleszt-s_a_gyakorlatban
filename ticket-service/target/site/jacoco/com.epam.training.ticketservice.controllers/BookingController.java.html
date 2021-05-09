@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="hu"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BookingController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ticket-service</a> &gt; <a href="index.source.html" class="el_package">com.epam.training.ticketservice.controllers</a> &gt; <span class="el_source">BookingController.java</span></div><h1>BookingController.java</h1><pre class="source lang-java linenums">package com.epam.training.ticketservice.controllers;
+
+import com.epam.training.ticketservice.exceptions.BookException;
+import com.epam.training.ticketservice.exceptions.CrudException;
+import com.epam.training.ticketservice.modell.Book;
+import com.epam.training.ticketservice.modell.Seats;
+import com.epam.training.ticketservice.services.BookService;
+import org.springframework.shell.standard.ShellComponent;
+import org.springframework.shell.standard.ShellMethod;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+
+@ShellComponent
+public class BookingController {
+
+    private final BookService bookService;
+
+<span class="nc" id="L21">    BookingController(BookService bookService) {</span>
+<span class="nc" id="L22">        this.bookService = bookService;</span>
+<span class="nc" id="L23">    }</span>
+
+    @ShellMethod(value = &quot;Create booking&quot;, key = &quot;book&quot;)
+    public String createBooking(String movieName, String roomName, String screeningDate, String seats) {
+<span class="nc" id="L27">        String accountName = bookService.getAccount();</span>
+<span class="nc" id="L28">        String[] places = seats.split(&quot; &quot;);</span>
+<span class="nc" id="L29">        List&lt;Seats&gt; seatList = createSeats(places);</span>
+<span class="nc" id="L30">        LocalDateTime screeningLocalDateTime = fomatDate(screeningDate);</span>
+<span class="nc" id="L31">        List&lt;Book&gt; bookings = createBookings(accountName, movieName, roomName, screeningLocalDateTime, seatList);</span>
+
+
+        try {
+<span class="nc" id="L35">            bookService.saveBooking(bookings);</span>
+<span class="nc" id="L36">        } catch (BookException | CrudException e) {</span>
+<span class="nc" id="L37">            return e.getMessage();</span>
+<span class="nc" id="L38">        }</span>
+<span class="nc" id="L39">        return null;</span>
+    }
+
+    private LocalDateTime fomatDate(String screeningDate) {
+<span class="nc" id="L43">        return LocalDateTime.parse(screeningDate, DateTimeFormatter.ofPattern(&quot;yyyy-MM-dd HH:mm&quot;));</span>
+    }
+
+    private List&lt;Seats&gt; createSeats(String[] seatList) {
+<span class="nc" id="L47">        List&lt;Seats&gt; seats = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L48" title="All 2 branches missed.">        for (String rowCol : seatList) {</span>
+<span class="nc" id="L49">            String[] places = rowCol.split(&quot;,&quot;);</span>
+<span class="nc" id="L50">            int row = Integer.parseInt(places[0]);</span>
+<span class="nc" id="L51">            int col = Integer.parseInt(places[1]);</span>
+<span class="nc" id="L52">            seats.add(new Seats(row, col));</span>
+        }
+<span class="nc" id="L54">        return seats;</span>
+    }
+
+    private List&lt;Book&gt; createBookings(String accountName, String movieName,
+                                      String roomName, LocalDateTime screeningDate, List&lt;Seats&gt; seatList) {
+<span class="nc" id="L59">        List&lt;Book&gt; bookingList = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L60" title="All 2 branches missed.">        for (Seats seats : seatList) {</span>
+<span class="nc" id="L61">            bookingList.add(new Book(accountName, movieName, roomName,</span>
+<span class="nc" id="L62">                    screeningDate, seats.getRowNum(), seats.getColNum()));</span>
+<span class="nc" id="L63">        }</span>
+<span class="nc" id="L64">        return bookingList;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

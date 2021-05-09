@@ -11,9 +11,11 @@ public class AccountProjection {
     private String password;
     private boolean isLoggedIn;
 
-    protected AccountProjection(){}
+    protected AccountProjection() {
 
-    public AccountProjection(String username,String password, boolean isLoggedIn){
+    }
+
+    public AccountProjection(String username,String password, boolean isLoggedIn) {
         this.username = username;
         this.password = password;
         this.isLoggedIn = isLoggedIn;

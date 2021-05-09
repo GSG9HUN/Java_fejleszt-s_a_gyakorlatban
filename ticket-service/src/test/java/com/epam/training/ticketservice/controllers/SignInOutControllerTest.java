@@ -1,5 +1,6 @@
 package com.epam.training.ticketservice.controllers;
 
+import com.epam.training.ticketservice.exceptions.CrudException;
 import com.epam.training.ticketservice.exceptions.SignInOutException;
 import com.epam.training.ticketservice.modell.AdminAccount;
 import com.epam.training.ticketservice.services.SignInOutService;
@@ -62,11 +63,11 @@ class SignInOutControllerTest {
     }
 
     @Test
-    public void testLogOutMethodButUserAreNotLoggedIn() throws SignInOutException {
+    public void testLogOutMethodButUserAreNotLoggedIn() throws SignInOutException, CrudException {
         //given
         SignInOutController signInOutController = new SignInOutController(signInOutService);
         AdminAccount.setIsLogedIn(false);
-        doThrow(new SignInOutException("You are not logged in")).when(signInOutService).signOutPrivileged();
+        doThrow(new SignInOutException("You are not logged in")).when(signInOutService).signOut();
         String result = null;
         //when
         result =signInOutController.logout();
@@ -76,7 +77,7 @@ class SignInOutControllerTest {
     }
 
     @Test
-    public void testLogOutMethod() throws SignInOutException {
+    public void testLogOutMethod() throws SignInOutException, CrudException {
         //given
         SignInOutController signInOutController = new SignInOutController(signInOutService);
         AdminAccount.setIsLogedIn(true);
@@ -84,7 +85,7 @@ class SignInOutControllerTest {
         signInOutController.logout();
 
         //then
-        verify(signInOutService).signOutPrivileged();
+        verify(signInOutService).signOut();
     }
 
 }

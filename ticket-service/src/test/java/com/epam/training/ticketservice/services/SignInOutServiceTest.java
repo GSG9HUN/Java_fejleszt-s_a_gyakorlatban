@@ -1,5 +1,6 @@
 package com.epam.training.ticketservice.services;
 
+import com.epam.training.ticketservice.exceptions.CrudException;
 import com.epam.training.ticketservice.exceptions.SignInOutException;
 import com.epam.training.ticketservice.modell.AdminAccount;
 import com.epam.training.ticketservice.repository.impl.JpaAccountRepository;
@@ -98,11 +99,11 @@ class SignInOutServiceTest {
     }
 
     @Test
-    public void testSignOutMethod() throws SignInOutException {
+    public void testSignOutMethod() throws SignInOutException, CrudException {
         //given
         AdminAccount.setIsLogedIn(true);
         //when
-        signInOutService.signOutPrivileged();
+        signInOutService.signOut();
         //then
         assertFalse(AdminAccount.isLogedIn());
     }
@@ -114,8 +115,8 @@ class SignInOutServiceTest {
         String result = null;
         //when
         try {
-            signInOutService.signOutPrivileged();
-        } catch (SignInOutException e) {
+            signInOutService.signOut();
+        } catch (SignInOutException | CrudException e) {
             result = e.getMessage();
         }
         //then

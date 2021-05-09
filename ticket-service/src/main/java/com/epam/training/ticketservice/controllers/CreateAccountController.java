@@ -16,7 +16,8 @@ public class CreateAccountController {
    CreateAccountController(CreateAccountService createAccountService) {
         this.createAccountService = createAccountService;
     }
-    @ShellMethod(value = "Creating new user", key="sign up")
+
+    @ShellMethod(value = "Creating new user", key = "sign up")
     public String createUser(String username,String password) {
 
         try {

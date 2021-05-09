@@ -20,11 +20,11 @@ public class JpaAccountRepository {
         this.accountDao = accountDao;
     }
 
-    public void saveAccount(String username,String password) throws CrudException {
-        Account account = new Account(username,password,false);
+    public void saveAccount(String username, String password) throws CrudException {
+        Account account = new Account(username, password, false);
         Optional<AccountProjection> accountExist;
         accountExist = findAccount(username);
-        if(accountExist.isEmpty()){
+        if (accountExist.isEmpty()) {
             accountDao.save(mapAccount(account));
             return;
         }
@@ -32,15 +32,20 @@ public class JpaAccountRepository {
 
     }
 
+    public void updateAccount(Account account) {
+        accountDao.save(mapAccount(account));
+    }
+
     private AccountProjection mapAccount(Account account) {
         return new AccountProjection(account.getUsername(), account.getPassword(), account.isLoggedIn());
     }
 
     private Account mapAccount(AccountProjection accountProjection) {
-        return new Account(accountProjection.getUsername(),accountProjection.getPassword(),accountProjection.isLoggedIn());
+        return new Account(accountProjection.getUsername(),
+                accountProjection.getPassword(), accountProjection.isLoggedIn());
     }
 
-    private Optional<AccountProjection> findAccount(String username){
+    private Optional<AccountProjection> findAccount(String username) {
         return accountDao.findAll()
                 .stream()
                 .filter(projection -> projection.getUsername().equals(username)).findFirst();
@@ -49,13 +54,13 @@ public class JpaAccountRepository {
 
     public void findAccount(String username, String password) throws SignInOutException {
         Optional<AccountProjection> result = findAccount(username);
-        if(result.isPresent()){
+        if (result.isPresent()) {
             Account account = mapAccount(result.get());
-            if(!account.getUsername().equals(username) || !account.getPassword().equals(password)){
+            if (!account.getUsername().equals(username) || !account.getPassword().equals(password)) {
                 throw new SignInOutException("Login failed due to incorrect credentials");
             }
 
-            if(account.isLoggedIn()){
+            if (account.isLoggedIn()) {
                 throw new SignInOutException("You already signed in");
             }
             AccountProjection accountProjection = result.get();
@@ -68,8 +73,22 @@ public class JpaAccountRepository {
         throw new SignInOutException("Login failed due to incorrect credentials");
     }
 
-    private void updateProjection(AccountProjection accountProjection){
+    private void updateProjection(AccountProjection accountProjection) {
         accountDao.save(accountProjection);
     }
 
+    public List<Account> getAll() {
+        return accountDao.findAll()
+                .stream()
+                .map(this::mapAccount)
+                .collect(Collectors.toList());
+    }
+
+    public Optional<Account> getLoggedInAccount() {
+        return accountDao.findAll()
+                .stream()
+                .filter(AccountProjection::isLoggedIn)
+                .map(this::mapAccount)
+                .findFirst();
+    }
 }

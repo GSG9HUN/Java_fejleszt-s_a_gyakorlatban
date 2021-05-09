@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="hu"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>JpaAccountRepository.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ticket-service</a> &gt; <a href="index.source.html" class="el_package">com.epam.training.ticketservice.repository.impl</a> &gt; <span class="el_source">JpaAccountRepository.java</span></div><h1>JpaAccountRepository.java</h1><pre class="source lang-java linenums">package com.epam.training.ticketservice.repository.impl;
+
+import com.epam.training.ticketservice.dataaccess.dao.AccountDao;
+import com.epam.training.ticketservice.dataaccess.projection.AccountProjection;
+import com.epam.training.ticketservice.exceptions.CrudException;
+import com.epam.training.ticketservice.exceptions.SignInOutException;
+import com.epam.training.ticketservice.modell.Account;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+@Repository
+public class JpaAccountRepository {
+
+    private final AccountDao accountDao;
+
+<span class="fc" id="L19">    public JpaAccountRepository(AccountDao accountDao) {</span>
+<span class="fc" id="L20">        this.accountDao = accountDao;</span>
+<span class="fc" id="L21">    }</span>
+
+    public void saveAccount(String username, String password) throws CrudException {
+<span class="fc" id="L24">        Account account = new Account(username, password, false);</span>
+        Optional&lt;AccountProjection&gt; accountExist;
+<span class="fc" id="L26">        accountExist = findAccount(username);</span>
+<span class="fc bfc" id="L27" title="All 2 branches covered.">        if (accountExist.isEmpty()) {</span>
+<span class="fc" id="L28">            accountDao.save(mapAccount(account));</span>
+<span class="fc" id="L29">            return;</span>
+        }
+<span class="fc" id="L31">        throw new CrudException(&quot;Account already exist with this username&quot;);</span>
+
+    }
+
+    public void updateAccount(Account account) {
+<span class="nc" id="L36">        accountDao.save(mapAccount(account));</span>
+<span class="nc" id="L37">    }</span>
+
+    private AccountProjection mapAccount(Account account) {
+<span class="fc" id="L40">        return new AccountProjection(account.getUsername(), account.getPassword(), account.isLoggedIn());</span>
+    }
+
+    private Account mapAccount(AccountProjection accountProjection) {
+<span class="fc" id="L44">        return new Account(accountProjection.getUsername(),</span>
+<span class="fc" id="L45">                accountProjection.getPassword(), accountProjection.isLoggedIn());</span>
+    }
+
+    private Optional&lt;AccountProjection&gt; findAccount(String username) {
+<span class="fc" id="L49">        return accountDao.findAll()</span>
+<span class="fc" id="L50">                .stream()</span>
+<span class="fc" id="L51">                .filter(projection -&gt; projection.getUsername().equals(username)).findFirst();</span>
+
+    }
+
+    public void findAccount(String username, String password) throws SignInOutException {
+<span class="fc" id="L56">        Optional&lt;AccountProjection&gt; result = findAccount(username);</span>
+<span class="fc bfc" id="L57" title="All 2 branches covered.">        if (result.isPresent()) {</span>
+<span class="fc" id="L58">            Account account = mapAccount(result.get());</span>
+<span class="pc bpc" id="L59" title="1 of 4 branches missed.">            if (!account.getUsername().equals(username) || !account.getPassword().equals(password)) {</span>
+<span class="fc" id="L60">                throw new SignInOutException(&quot;Login failed due to incorrect credentials&quot;);</span>
+            }
+
+<span class="fc bfc" id="L63" title="All 2 branches covered.">            if (account.isLoggedIn()) {</span>
+<span class="fc" id="L64">                throw new SignInOutException(&quot;You already signed in&quot;);</span>
+            }
+<span class="fc" id="L66">            AccountProjection accountProjection = result.get();</span>
+<span class="fc" id="L67">            accountProjection.setLoggedIn(true);</span>
+<span class="fc" id="L68">            updateProjection(accountProjection);</span>
+<span class="fc" id="L69">            account.setLoggedIn(true);</span>
+<span class="fc" id="L70">            return;</span>
+
+        }
+<span class="fc" id="L73">        throw new SignInOutException(&quot;Login failed due to incorrect credentials&quot;);</span>
+    }
+
+    private void updateProjection(AccountProjection accountProjection) {
+<span class="fc" id="L77">        accountDao.save(accountProjection);</span>
+<span class="fc" id="L78">    }</span>
+
+    public List&lt;Account&gt; getAll() {
+<span class="nc" id="L81">        return accountDao.findAll()</span>
+<span class="nc" id="L82">                .stream()</span>
+<span class="nc" id="L83">                .map(this::mapAccount)</span>
+<span class="nc" id="L84">                .collect(Collectors.toList());</span>
+    }
+
+    public Optional&lt;Account&gt; getLoggedInAccount() {
+<span class="nc" id="L88">        return accountDao.findAll()</span>
+<span class="nc" id="L89">                .stream()</span>
+<span class="nc" id="L90">                .filter(AccountProjection::isLoggedIn)</span>
+<span class="nc" id="L91">                .map(this::mapAccount)</span>
+<span class="nc" id="L92">                .findFirst();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

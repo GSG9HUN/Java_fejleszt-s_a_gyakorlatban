@@ -6,9 +6,9 @@ public class Account {
     final String password;
     private boolean isLoggedIn;
 
-    public Account(String username, String password, boolean isLoggedIn){
-        this.username=username;
-        this.password=password;
+    public Account(String username, String password, boolean isLoggedIn) {
+        this.username = username;
+        this.password = password;
         this.isLoggedIn = isLoggedIn;
     }
 

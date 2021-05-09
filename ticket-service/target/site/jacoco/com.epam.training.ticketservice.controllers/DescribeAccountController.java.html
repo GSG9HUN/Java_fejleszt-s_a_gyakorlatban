@@ -1,27 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="hu"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DescribeAccountController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ticket-service</a> &gt; <a href="index.source.html" class="el_package">com.epam.training.ticketservice.controllers</a> &gt; <span class="el_source">DescribeAccountController.java</span></div><h1>DescribeAccountController.java</h1><pre class="source lang-java linenums">package com.epam.training.ticketservice.controllers;
 
 import com.epam.training.ticketservice.modell.AdminAccount;
+import com.epam.training.ticketservice.modell.Book;
+import com.epam.training.ticketservice.services.BookService;
 import com.epam.training.ticketservice.services.DescribeAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
 
+import java.time.LocalDateTime;
+import java.util.List;
+
 @ShellComponent
 public class DescribeAccountController {
 
-    private DescribeAccountService describeAccountService;
+    private final DescribeAccountService describeAccountService;
+    private final BookService bookService;
+<span class="fc" id="L19">    private final int bookPrice = 1500;</span>
 
     @Autowired
-<span class="fc" id="L15">    DescribeAccountController(DescribeAccountService describeAccountService) {</span>
-<span class="fc" id="L16">        this.describeAccountService = describeAccountService;</span>
-<span class="fc" id="L17">    }</span>
+<span class="fc" id="L22">    DescribeAccountController(DescribeAccountService describeAccountService, BookService bookService) {</span>
+<span class="fc" id="L23">        this.describeAccountService = describeAccountService;</span>
+<span class="fc" id="L24">        this.bookService = bookService;</span>
+<span class="fc" id="L25">    }</span>
 
     @ShellMethod(value = &quot;Describe account&quot;, key = &quot;describe account&quot;)
     public String describeAccount() {
-<span class="fc bfc" id="L21" title="All 2 branches covered.">        if (describeAccountService.describe()) {</span>
-<span class="fc" id="L22">            return &quot;Signed in with privileged account: &quot; + AdminAccount.getUsername();</span>
+<span class="fc bfc" id="L29" title="All 2 branches covered.">        if (describeAccountService.describe()) {</span>
+<span class="fc" id="L30">            return &quot;Signed in with privileged account: &quot; + AdminAccount.getUsername();</span>
         }
-<span class="fc" id="L24">        return &quot;You are not signed in&quot;;</span>
+
+<span class="pc bpc" id="L33" title="1 of 2 branches missed.">        if (describeAccountService.describeUser()) {</span>
+<span class="nc" id="L34">            System.out.println(&quot;Signed in with account '&quot; + describeAccountService.getAccount() + &quot;'&quot;);</span>
+<span class="nc" id="L35">            List&lt;Book&gt; bookings = bookService.findAllBookingsForAccount(describeAccountService.getAccount());</span>
+<span class="nc bnc" id="L36" title="All 2 branches missed.">            if (bookings.isEmpty()) {</span>
+<span class="nc" id="L37">                return &quot;You have not booked any tickets yet&quot;;</span>
+            }
+<span class="nc" id="L39">            System.out.println(&quot;Your previous bookings are&quot;);</span>
+<span class="nc" id="L40">            System.out.print(&quot;Seats &quot;);</span>
+<span class="nc" id="L41">            int counter = 0;</span>
+<span class="nc" id="L42">            StringBuilder result = new StringBuilder();</span>
+<span class="nc bnc" id="L43" title="All 2 branches missed.">            for (Book book : bookings) {</span>
+<span class="nc" id="L44">                result.append(&quot;(&quot;).append(book.getRowNum()).append(&quot;,&quot;).append(book.getColNum()).append(&quot;), &quot;);</span>
+<span class="nc" id="L45">                counter++;</span>
+<span class="nc" id="L46">            }</span>
+<span class="nc" id="L47">            Book firstBooking = bookings.get(0);</span>
+<span class="nc" id="L48">            LocalDateTime screeningDate = firstBooking.getScreeningDate();</span>
+<span class="nc" id="L49">            result.delete(result.length() - 2, result.length() - 1);</span>
+<span class="nc" id="L50">            System.out.print(result + &quot; on &quot; + firstBooking.getMovieName() + &quot; in room &quot;</span>
+<span class="nc" id="L51">                    + firstBooking.getRoomName() + &quot; starting at &quot;);</span>
+<span class="nc" id="L52">            System.out.print(screeningDate.getYear() + &quot;-&quot; + screeningDate.getMonth()</span>
+<span class="nc" id="L53">                    + &quot;-&quot; + screeningDate.getDayOfMonth() + &quot; &quot; + screeningDate.getHour()</span>
+<span class="nc" id="L54">                    + &quot;:&quot; + screeningDate.getMinute() + &quot; for &quot; + bookPrice * counter + &quot; HUF\n&quot;);</span>
+<span class="nc" id="L55">            return null;</span>
+        }
+
+<span class="fc" id="L58">        return &quot;You are not signed in&quot;;</span>
     }
 
 }
