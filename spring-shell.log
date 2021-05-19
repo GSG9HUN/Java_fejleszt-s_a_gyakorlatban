@@ -522,3 +522,59 @@
 1620503686727:create account
 1620503702171:sign up user user
 1620503710799:exit
+1620554162963:sign in user user
+1620554169960:create account user user
+1620554180719:sign up user user
+1620554185900:sign in user user
+1620554190107:describe account
+1620554207284:sign out
+1620554225107:describe account
+1620554438898:sign up account account
+1620554443903:sign in account account
+1620554462579:describe account
+1620555038023:sign in user user
+1620555042901:sign out
+1620555229818:describe account
+1620555306490:sign out
+1620555316883:sing in user user
+1620555325694:sign in user user
+1620555331610:sign in account account
+1620565755283:describe account
+1620565760138:sign out
+1620565778070:sign in privileged admin admin
+1620565786651:create room Terem 5 5
+1620565799886:create movie Film action 125
+1620565825627:create screening Film Terem "2012-11-30 16:00"
+1620565831419:list screenings
+1620565862024:create screening Film Terem "2011-11-30 16:00"
+1620565870043:book
+1620565908258:book Film Terem "2012-11-30 16:00" "3,4 3,5 6,6"
+1620565937879:sign out
+1620565943301:sign in user user
+1620565949382:book Film Terem "2012-11-30 16:00" "3,4 3,5 6,6"
+1620566018125:book Film Terem "2012-11-30 16:00" "3,4 3,5"
+1620566054320:book Film Terem "2012-11-30 16:00" "2,2"
+1620568066616:sign out
+1620568072555:sign in user user
+1620568101443:book Film Terem "2012-11-30 16:00"
+1620568130639:book Film Terem "2012-11-30 16:00" "5,5 2,2 1,1"
+1620568134234:sign out
+1620568137471:sing in user user
+1620568141962:sign in user user
+1620568152472:describe account
+1620568388730:sign out
+1620568406150:sign in user user
+1620568409764:describe account
+1621459626471:sign in privileged admin admin
+1621459638226:create movie Sátántangó drama 450
+1621459647384:delete movie Sátántangó
+1621459651378:list movies
+1621459668325:delete movie Film
+1621459672035:list movies
+1621459681225:sign out
+1621459687489:sign in privileged admin admin
+1621459718400:exit
+1621460778476:sign in privileged admin admin
+1621460793814:create movie Sátántangó dram 450
+1621460803624:update movie Sátántangó drama 450
+1621460806145:list movies

@@ -25,7 +25,7 @@ public class MovieService {
     public List&lt;Movie&gt; listMovies() throws EmptyListException {
 <span class="fc" id="L26">        List&lt;Movie&gt; movies = jpaMovieRepository.getAll();</span>
 <span class="fc bfc" id="L27" title="All 2 branches covered.">        if (movies.isEmpty()) {</span>
-<span class="fc" id="L28">            throw new EmptyListException(&quot;Theres no movies at the moment&quot;);</span>
+<span class="fc" id="L28">            throw new EmptyListException(&quot;There are no movies at the moment&quot;);</span>
         }
 <span class="fc" id="L30">        return movies;</span>
     }

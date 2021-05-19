@@ -100,11 +100,11 @@ class ScreeningControllerTest {
     public void testListScreeningMethodButTheresNoScreeningNow() throws EmptyListException {
         //given
         String result;
-        doThrow(new EmptyListException("Theres no screening at the moment")).when(screeningService).listScreenings();
+        doThrow(new EmptyListException("There are no screening at the moment")).when(screeningService).listScreenings();
         //when
         result = screeningController.listScreenings();
         //then
-        assertEquals("Theres no screening at the moment",result);
+        assertEquals("There are no screening at the moment",result);
     }
 
     @Test

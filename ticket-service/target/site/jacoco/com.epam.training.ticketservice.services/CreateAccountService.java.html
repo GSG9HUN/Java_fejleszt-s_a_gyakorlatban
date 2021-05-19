@@ -2,7 +2,6 @@
 
 import com.epam.training.ticketservice.exceptions.CrudException;
 import com.epam.training.ticketservice.repository.impl.JpaAccountRepository;
-import com.epam.training.ticketservice.repository.impl.JpaMovieRepository;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -10,12 +9,12 @@ public class CreateAccountService {
 
     private JpaAccountRepository jpaAccountRepository;
 
-<span class="nc" id="L13">    public CreateAccountService(JpaAccountRepository jpaAccountRepository) {</span>
-<span class="nc" id="L14">        this.jpaAccountRepository = jpaAccountRepository;</span>
-<span class="nc" id="L15">    }</span>
+<span class="nc" id="L12">    public CreateAccountService(JpaAccountRepository jpaAccountRepository) {</span>
+<span class="nc" id="L13">        this.jpaAccountRepository = jpaAccountRepository;</span>
+<span class="nc" id="L14">    }</span>
 
     public void createAccount(String username, String password) throws CrudException {
-<span class="nc" id="L18">        jpaAccountRepository.saveAccount(username,password);</span>
-<span class="nc" id="L19">    }</span>
+<span class="nc" id="L17">        jpaAccountRepository.saveAccount(username,password);</span>
+<span class="nc" id="L18">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

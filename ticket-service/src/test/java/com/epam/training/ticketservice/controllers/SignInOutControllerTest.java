@@ -28,7 +28,7 @@ class SignInOutControllerTest {
     }
 
     @Test
-    public void testLogInMethodWithInCorrectCerdentails() throws SignInOutException {
+    public void testLogInMethodWithInCorrectCredentials() throws SignInOutException {
         //given
         String username = "sandor";
         String password = "sandor";
@@ -46,7 +46,7 @@ class SignInOutControllerTest {
     }
 
     @Test
-    public void testLogInMethodWithInCorrectCerdentailsButAlreadyLoggedIn() throws SignInOutException {
+    public void testLogInMethodWithInCorrectCredentialsButAlreadyLoggedIn() throws SignInOutException {
         //given
         String username = "sandor";
         String password = "sandor";

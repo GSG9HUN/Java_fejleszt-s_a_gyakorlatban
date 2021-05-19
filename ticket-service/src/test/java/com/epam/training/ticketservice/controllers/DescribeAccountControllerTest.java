@@ -35,7 +35,7 @@ class DescribeAccountControllerTest {
         String result = describeAccountController.describeAccount();
         //then
 
-        assertEquals("Signed in with privileged account: " + AdminAccount.getUsername(),result);
+        assertEquals("Signed in with privileged account '" + AdminAccount.getUsername() + "'",result);
     }
 
 }

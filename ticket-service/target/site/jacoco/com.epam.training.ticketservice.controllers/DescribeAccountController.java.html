@@ -27,7 +27,7 @@ public class DescribeAccountController {
     @ShellMethod(value = &quot;Describe account&quot;, key = &quot;describe account&quot;)
     public String describeAccount() {
 <span class="fc bfc" id="L29" title="All 2 branches covered.">        if (describeAccountService.describe()) {</span>
-<span class="fc" id="L30">            return &quot;Signed in with privileged account: &quot; + AdminAccount.getUsername();</span>
+<span class="fc" id="L30">            return &quot;Signed in with privileged account '&quot; + AdminAccount.getUsername() + &quot;'&quot;;</span>
         }
 
 <span class="pc bpc" id="L33" title="1 of 2 branches missed.">        if (describeAccountService.describeUser()) {</span>

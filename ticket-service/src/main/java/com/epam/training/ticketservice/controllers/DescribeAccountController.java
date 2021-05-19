@@ -27,7 +27,7 @@ public class DescribeAccountController {
     @ShellMethod(value = "Describe account", key = "describe account")
     public String describeAccount() {
         if (describeAccountService.describe()) {
-            return "Signed in with privileged account: " + AdminAccount.getUsername();
+            return "Signed in with privileged account '" + AdminAccount.getUsername() + "'";
         }
 
         if (describeAccountService.describeUser()) {

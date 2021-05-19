@@ -1,0 +1,6 @@
+#surefire_0
+#Wed May 19 23:50:06 CEST 2021
+basedir=C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service-acceptance-tests
+cucumber.filter.tags=@grade2-requirement or @grade3-requirement or @grade4-requirement
+user.dir=C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service-acceptance-tests
+localRepository=C\:\\Users\\ssgam\\.m2\\repository

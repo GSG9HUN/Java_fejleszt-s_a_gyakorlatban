@@ -43,11 +43,11 @@ class MovieControllerTest {
     public void testListMoviesButNoMoviesInTheDao() throws EmptyListException {
         //given
         String result=null;
-        doThrow(new EmptyListException("Theres no movies at the moment")).when(movieService).listMovies();
+        doThrow(new EmptyListException("There are no movies at the moment")).when(movieService).listMovies();
         //when
         result =movieController.list();
         //then
-        assertEquals("Theres no movies at the moment",result);
+        assertEquals("There are no movies at the moment",result);
     }
     @Test
     public void testListMovies() throws EmptyListException {

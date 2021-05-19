@@ -2,7 +2,6 @@ package com.epam.training.ticketservice.services;
 
 import com.epam.training.ticketservice.exceptions.CrudException;
 import com.epam.training.ticketservice.repository.impl.JpaAccountRepository;
-import com.epam.training.ticketservice.repository.impl.JpaMovieRepository;
 import org.springframework.stereotype.Service;
 
 @Service

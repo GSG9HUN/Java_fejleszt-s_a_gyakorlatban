@@ -27,7 +27,7 @@ public class RoomService {
     public List<Room> listRooms() throws EmptyListException {
         List<Room> rooms = jpaRoomRepository.getAll();
         if (rooms.isEmpty()) {
-            throw new EmptyListException("Theres no rooms at the moment");
+            throw new EmptyListException("There are no rooms at the moment");
         }
         return rooms;
     }

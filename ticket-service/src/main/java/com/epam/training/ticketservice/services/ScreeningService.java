@@ -98,7 +98,7 @@ public class ScreeningService {
     public List<Screening> listScreenings() throws EmptyListException {
         List<Screening> screening = jpaScrreningRepository.getAll();
         if (screening.isEmpty()) {
-            throw new EmptyListException("Theres no screening at the moment");
+            throw new EmptyListException("There are no screenings");
         }
         return screening;
     }

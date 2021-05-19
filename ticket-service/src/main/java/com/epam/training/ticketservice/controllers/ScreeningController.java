@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
 
+import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -45,6 +46,7 @@ public class ScreeningController {
     @ShellMethod(value = "List all screening", key = "list screenings")
     public String listScreenings() {
         List<Screening> screeningList = null;
+        DecimalFormat doubleDigitValue = new DecimalFormat("00");
         try {
             screeningList = screeningService.listScreenings();
             for (Screening screening : screeningList) {
@@ -53,8 +55,10 @@ public class ScreeningController {
                 LocalDateTime date = screening.getFilmStart();
                 System.out.println(movie.getName() + " (" + movie.getCategory() + ", " + movie.getLength()
                         + " minutes), screened in room " + screening.getRoomName()
-                        + ", at " + date.getYear() + "-" + date.getMonth() + "-" + date.getDayOfMonth()
-                        + " " + date.getHour() + ":" + date.getMinute());
+                        + ", at " + date.getYear() + "-" + doubleDigitValue.format(date.getMonthValue())
+                        + "-" + date.getDayOfMonth()
+                        + " " + date.getHour() + ":"
+                        + doubleDigitValue.format(date.getMinute()));
             }
 
         } catch (EmptyListException | CrudException emptyList) {

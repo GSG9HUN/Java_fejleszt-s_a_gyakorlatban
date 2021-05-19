@@ -44,11 +44,11 @@ class RoomControllerTest {
     public void testListRoomMethodWithNoRooms() throws EmptyListException {
         //given
         String result;
-        when(roomService.listRooms()).thenThrow(new EmptyListException("Theres no rooms at the moment"));
+        when(roomService.listRooms()).thenThrow(new EmptyListException("There are no rooms at the moment"));
         //when
         result=roomController.list();
         //then
-        assertEquals("Theres no rooms at the moment",result);
+        assertEquals("There are no rooms at the moment",result);
     }
 
     @Test

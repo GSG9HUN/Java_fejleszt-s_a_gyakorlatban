@@ -1,9 +1,9 @@
-#Sun May 09 17:04:36 CEST 2021
+#Wed May 19 23:49:46 CEST 2021
 C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\Application.java=1620125391702
 C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\repository\\impl\\JpaBookRepository.java=1620570307986
 C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\services\\BookService.java=1620568844263
 C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\repository\\impl\\JpaRoomRepository.java=1620469748686
-C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\services\\CreateAccountService.java=1620466129564
+C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\services\\CreateAccountService.java=1621436976857
 C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service\\src\\main\\resources\\application.properties=1620500984311
 C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\services\\DescribeAccountService.java=1620568826079
 C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\exceptions\\CrudException.java=1620559677893
@@ -12,7 +12,7 @@ C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-ser
 C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\modell\\Room.java=1620125523196
 C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\exceptions\\EmptyListException.java=1620559677816
 C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\controllers\\MovieController.java=1620125606997
-C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\controllers\\DescribeAccountController.java=1620568977316
+C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\controllers\\DescribeAccountController.java=1621458435757
 C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\controllers\\BookingController.java=1620569004007
 C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\exceptions\\BookException.java=1620568826031
 C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\exceptions\\OverlappingException.java=1620559677750
@@ -21,26 +21,26 @@ C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-ser
 C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\controllers\\SignInOutController.java=1620568825967
 module-resource*?\:checkstyle-xpath-suppressions.xml=176E4345A6C3E6390E4DC5EA4A67460A25FBE9E0
 module-resource*?\:checkstyle-suppressions.xml=B026C5FA4BA0D86A10CE7F341ADCD947BD5BB112
-C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\services\\RoomService.java=1620468281168
+C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\services\\RoomService.java=1621456602987
 C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\exceptions\\SignInOutException.java=1620559677919
 C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\services\\SignInOutService.java=1620568825961
 C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\repository\\Repo.java=1620305134617
 C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\repository\\impl\\JpaMovieRepository.java=1620324266479
 C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\dataaccess\\projection\\MovieProjection.java=1620125391672
 C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\modell\\Seats.java=1620565339110
-C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\controllers\\ScreeningController.java=1620460818604
+C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\controllers\\ScreeningController.java=1621460328801
 C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\modell\\Movie.java=1620125523006
 C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\repository\\impl\\JpaAccountRepository.java=1620572469037
-C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\repository\\impl\\JpaScreeningRepository.java=1620460782203
+C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\repository\\impl\\JpaScreeningRepository.java=1621456183488
 C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service\\src\\main\\resources\\application-ci.properties=1620503633487
-C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\services\\ScreeningService.java=1620468280648
+C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\services\\ScreeningService.java=1621460221127
 C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\modell\\Book.java=1620568941237
 C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\controllers\\CreateAccountController.java=1620568991274
 C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\modell\\Account.java=1620568945833
 configuration*?=F2CC11CD56B208CC2E022E13C12EAE9CD6E48CDE
 C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\modell\\AdminAccount.java=1620125523246
 C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\modell\\Screening.java=1620400146189
-C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\services\\MovieService.java=1620323864413
+C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\services\\MovieService.java=1621456610312
 C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\dataaccess\\projection\\AccountProjection.java=1620568962956
 C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\TicketServicePromptProvider.java=1619879598131
 C\:\\Users\\ssgam\\Documents\\GitHub\\Java_fejlesztes_a_gyakorlatban\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\dataaccess\\dao\\AccountDao.java=1620466129482

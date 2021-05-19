@@ -9,10 +9,17 @@ import com.epam.training.ticketservice.repository.impl.JpaScreeningRepository;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.mockito.stubbing.OngoingStubbing;
+import org.springframework.format.annotation.DateTimeFormat;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.time.LocalDateTime;
+import java.time.Month;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoField;
+import java.time.temporal.TemporalAccessor;
 import java.util.List;
+import java.util.Locale;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.doThrow;
@@ -35,7 +42,7 @@ class ScreeningServiceTest {
             result = e.getMessage();
         }
         //then
-        assertEquals("Theres no screening at the moment",result);
+        assertEquals("There are no screenings",result);
     }
 
 

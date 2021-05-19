@@ -28,7 +28,7 @@ class RoomServiceTest {
             result=e.getMessage();
         }
         //then
-        assertEquals("Theres no rooms at the moment",result);
+        assertEquals("There are no rooms at the moment",result);
     }
     @Test
     public void testListRomsMethod() throws EmptyListException {

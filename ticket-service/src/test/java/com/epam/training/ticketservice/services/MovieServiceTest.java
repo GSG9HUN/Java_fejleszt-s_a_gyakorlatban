@@ -28,7 +28,7 @@ class MovieServiceTest {
             result = e.getMessage();
         }
         //then
-        assertEquals("Theres no movies at the moment",result);
+        assertEquals("There are no movies at the moment",result);
     }
 
     @Test
