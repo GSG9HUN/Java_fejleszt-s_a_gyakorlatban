@@ -40,94 +40,95 @@ public class JpaBookRepository {
 <span class="nc" id="L40">        checkIfSeatIsTaken(room, bookings);</span>
 
 <span class="nc" id="L42">        saveBookings(bookings);</span>
-<span class="nc" id="L43">    }</span>
+
+<span class="nc" id="L44">    }</span>
 
 
     public void checkIfSeatIsTaken(Optional&lt;Room&gt; room, List&lt;Book&gt; bookings) throws BookException {
-<span class="pc bpc" id="L47" title="1 of 2 branches missed.">        for (Book booking : bookings) {</span>
-<span class="fc bfc" id="L48" title="All 2 branches covered.">            if (!roomSeatsExist(room.get(), booking)) {</span>
-<span class="fc" id="L49">                throw new BookException(&quot;Seats (&quot; + booking.getRowNum() + &quot;,&quot;</span>
-<span class="fc" id="L50">                        + booking.getColNum() + &quot;) does not exist in this room&quot;);</span>
+<span class="pc bpc" id="L48" title="1 of 2 branches missed.">        for (Book booking : bookings) {</span>
+<span class="fc bfc" id="L49" title="All 2 branches covered.">            if (!roomSeatsExist(room.get(), booking)) {</span>
+<span class="fc" id="L50">                throw new BookException(&quot;Seats (&quot; + booking.getRowNum() + &quot;,&quot;</span>
+<span class="fc" id="L51">                        + booking.getColNum() + &quot;) does not exist in this room&quot;);</span>
             }
 
-<span class="pc bpc" id="L53" title="1 of 2 branches missed.">            if (seatIsTaken(booking)) {</span>
-<span class="fc" id="L54">                throw new BookException(&quot;Seats (&quot; + booking.getRowNum() + &quot;,&quot;</span>
-<span class="fc" id="L55">                        + booking.getColNum() + &quot;) is already taken&quot;);</span>
+<span class="pc bpc" id="L54" title="1 of 2 branches missed.">            if (seatIsTaken(booking)) {</span>
+<span class="fc" id="L55">                throw new BookException(&quot;Seat (&quot; + booking.getRowNum() + &quot;,&quot;</span>
+<span class="fc" id="L56">                        + booking.getColNum() + &quot;) is already taken&quot;);</span>
             }
-<span class="nc" id="L57">        }</span>
-<span class="nc" id="L58">    }</span>
+<span class="nc" id="L58">        }</span>
+<span class="nc" id="L59">    }</span>
 
     private void saveBookings(List&lt;Book&gt; bookings) {
-<span class="nc bnc" id="L61" title="All 2 branches missed.">        for (Book booking : bookings) {</span>
-<span class="nc" id="L62">            bookDao.save(mapBook(booking));</span>
-<span class="nc" id="L63">        }</span>
-<span class="nc" id="L64">    }</span>
+<span class="nc bnc" id="L62" title="All 2 branches missed.">        for (Book booking : bookings) {</span>
+<span class="nc" id="L63">            bookDao.save(mapBook(booking));</span>
+<span class="nc" id="L64">        }</span>
+<span class="nc" id="L65">    }</span>
 
 
     private boolean roomSeatsExist(Room room, Book book) {
-<span class="fc bfc" id="L68" title="All 2 branches covered.">        return book.getColNum() &lt;= room.getColNum()</span>
-<span class="pc bpc" id="L69" title="1 of 2 branches missed.">                &amp;&amp; book.getRowNum() &lt;= room.getRowNum();</span>
+<span class="fc bfc" id="L69" title="All 2 branches covered.">        return book.getColNum() &lt;= room.getColNum()</span>
+<span class="pc bpc" id="L70" title="1 of 2 branches missed.">                &amp;&amp; book.getRowNum() &lt;= room.getRowNum();</span>
     }
 
     public List&lt;Book&gt; getAll(String accountName) {
-<span class="nc" id="L73">        return bookDao.findAll()</span>
-<span class="nc" id="L74">                .stream()</span>
-<span class="nc" id="L75">                .filter(bookProjection -&gt; bookProjection.getAccountName().equals(accountName))</span>
-<span class="nc" id="L76">                .map(this::mapBook)</span>
-<span class="nc" id="L77">                .collect(Collectors.toList());</span>
+<span class="nc" id="L74">        return bookDao.findAll()</span>
+<span class="nc" id="L75">                .stream()</span>
+<span class="nc" id="L76">                .filter(bookProjection -&gt; bookProjection.getAccountName().equals(accountName))</span>
+<span class="nc" id="L77">                .map(this::mapBook)</span>
+<span class="nc" id="L78">                .collect(Collectors.toList());</span>
     }
 
     private boolean seatIsTaken(Book book) {
-<span class="fc" id="L81">        Optional&lt;Book&gt; takenSeats = bookDao.findAll()</span>
-<span class="fc" id="L82">                .stream()</span>
-<span class="pc bpc" id="L83" title="1 of 2 branches missed.">                .filter(bookProjection -&gt; bookProjection.getMovieName().equals(book.getMovieName())</span>
-<span class="pc bpc" id="L84" title="1 of 2 branches missed.">                        &amp;&amp; bookProjection.getRoomName().equals(book.getRoomName())</span>
-<span class="pc bpc" id="L85" title="1 of 2 branches missed.">                        &amp;&amp; bookProjection.getScreeningDate().equals(book.getScreeningDate())</span>
-<span class="pc bpc" id="L86" title="1 of 2 branches missed.">                        &amp;&amp; bookProjection.getColNum() == book.getColNum()</span>
-<span class="pc bpc" id="L87" title="1 of 2 branches missed.">                        &amp;&amp; bookProjection.getRowNum() == book.getRowNum())</span>
-<span class="fc" id="L88">                .map(this::mapBook)</span>
-<span class="fc" id="L89">                .findFirst();</span>
-<span class="fc" id="L90">        return takenSeats.isPresent();</span>
+<span class="fc" id="L82">        Optional&lt;Book&gt; takenSeats = bookDao.findAll()</span>
+<span class="fc" id="L83">                .stream()</span>
+<span class="pc bpc" id="L84" title="1 of 2 branches missed.">                .filter(bookProjection -&gt; bookProjection.getMovieName().equals(book.getMovieName())</span>
+<span class="pc bpc" id="L85" title="1 of 2 branches missed.">                        &amp;&amp; bookProjection.getRoomName().equals(book.getRoomName())</span>
+<span class="pc bpc" id="L86" title="1 of 2 branches missed.">                        &amp;&amp; bookProjection.getScreeningDate().equals(book.getScreeningDate())</span>
+<span class="pc bpc" id="L87" title="1 of 2 branches missed.">                        &amp;&amp; bookProjection.getColNum() == book.getColNum()</span>
+<span class="pc bpc" id="L88" title="1 of 2 branches missed.">                        &amp;&amp; bookProjection.getRowNum() == book.getRowNum())</span>
+<span class="fc" id="L89">                .map(this::mapBook)</span>
+<span class="fc" id="L90">                .findFirst();</span>
+<span class="fc" id="L91">        return takenSeats.isPresent();</span>
 
     }
 
     private Optional&lt;Room&gt; findRoom(String roomName) {
-<span class="fc" id="L95">        return roomDao.findAll()</span>
-<span class="fc" id="L96">                .stream()</span>
-<span class="pc" id="L97">                .filter(roomProjection -&gt; roomProjection.getName().equals(roomName))</span>
-<span class="fc" id="L98">                .map(this::mapRoom)</span>
-<span class="fc" id="L99">                .findFirst();</span>
+<span class="fc" id="L96">        return roomDao.findAll()</span>
+<span class="fc" id="L97">                .stream()</span>
+<span class="pc" id="L98">                .filter(roomProjection -&gt; roomProjection.getName().equals(roomName))</span>
+<span class="fc" id="L99">                .map(this::mapRoom)</span>
+<span class="fc" id="L100">                .findFirst();</span>
 
     }
 
     private Room mapRoom(RoomProjection roomProjection) {
-<span class="nc" id="L104">        return new Room(roomProjection.getName(), roomProjection.getRowNum(), roomProjection.getColNum());</span>
+<span class="nc" id="L105">        return new Room(roomProjection.getName(), roomProjection.getRowNum(), roomProjection.getColNum());</span>
     }
 
 
     private BookProjection mapBook(Book book) {
-<span class="nc" id="L109">        return new BookProjection(book.getAccountName(), book.getMovieName(),</span>
-<span class="nc" id="L110">                book.getRoomName(), book.getScreeningDate(), book.getRowNum(), book.getColNum());</span>
+<span class="nc" id="L110">        return new BookProjection(book.getAccountName(), book.getMovieName(),</span>
+<span class="nc" id="L111">                book.getRoomName(), book.getScreeningDate(), book.getRowNum(), book.getColNum());</span>
     }
 
     private Book mapBook(BookProjection book) {
-<span class="fc" id="L114">        return new Book(book.getAccountName(), book.getMovieName(),</span>
-<span class="fc" id="L115">                book.getRoomName(), book.getScreeningDate(), book.getRowNum(), book.getColNum());</span>
+<span class="fc" id="L115">        return new Book(book.getAccountName(), book.getMovieName(),</span>
+<span class="fc" id="L116">                book.getRoomName(), book.getScreeningDate(), book.getRowNum(), book.getColNum());</span>
     }
 
     public String getAccount() {
-<span class="nc" id="L119">        return accountDao.findAll()</span>
-<span class="nc" id="L120">                .stream()</span>
-<span class="nc" id="L121">                .filter(AccountProjection::isLoggedIn)</span>
-<span class="nc" id="L122">                .findFirst()</span>
-<span class="nc" id="L123">                .map(this::mapAccount)</span>
-<span class="nc" id="L124">                .get()</span>
-<span class="nc" id="L125">                .getUsername();</span>
+<span class="nc" id="L120">        return accountDao.findAll()</span>
+<span class="nc" id="L121">                .stream()</span>
+<span class="nc" id="L122">                .filter(AccountProjection::isLoggedIn)</span>
+<span class="nc" id="L123">                .findFirst()</span>
+<span class="nc" id="L124">                .map(this::mapAccount)</span>
+<span class="nc" id="L125">                .get()</span>
+<span class="nc" id="L126">                .getUsername();</span>
     }
 
     private Account mapAccount(AccountProjection accountProjection) {
-<span class="nc" id="L129">        return new Account(accountProjection.getUsername(),</span>
-<span class="nc" id="L130">                accountProjection.getPassword(), accountProjection.isLoggedIn());</span>
+<span class="nc" id="L130">        return new Account(accountProjection.getUsername(),</span>
+<span class="nc" id="L131">                accountProjection.getPassword(), accountProjection.isLoggedIn());</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

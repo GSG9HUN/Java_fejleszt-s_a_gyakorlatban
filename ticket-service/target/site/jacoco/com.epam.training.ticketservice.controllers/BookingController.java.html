@@ -36,32 +36,39 @@ public class BookingController {
 <span class="nc" id="L36">        } catch (BookException | CrudException e) {</span>
 <span class="nc" id="L37">            return e.getMessage();</span>
 <span class="nc" id="L38">        }</span>
-<span class="nc" id="L39">        return null;</span>
+<span class="nc" id="L39">        StringBuilder successBooking = new StringBuilder(&quot;Seats booked:&quot;);</span>
+        for (Book book:
+<span class="nc bnc" id="L41" title="All 2 branches missed.">             bookings) {</span>
+<span class="nc" id="L42">            successBooking.append(&quot; (&quot;).append(book.getRowNum()).append(&quot;,&quot;).append(book.getColNum()).append(&quot;),&quot;);</span>
+<span class="nc" id="L43">        }</span>
+<span class="nc" id="L44">        successBooking.replace(successBooking.length() - 1,successBooking.length(),&quot;;&quot;);</span>
+<span class="nc" id="L45">        successBooking.append(&quot; the price for this booking is &quot;).append(1500 * bookings.size()).append(&quot; HUF&quot;);</span>
+<span class="nc" id="L46">        return successBooking.toString();</span>
     }
 
     private LocalDateTime fomatDate(String screeningDate) {
-<span class="nc" id="L43">        return LocalDateTime.parse(screeningDate, DateTimeFormatter.ofPattern(&quot;yyyy-MM-dd HH:mm&quot;));</span>
+<span class="nc" id="L50">        return LocalDateTime.parse(screeningDate, DateTimeFormatter.ofPattern(&quot;yyyy-MM-dd HH:mm&quot;));</span>
     }
 
     private List&lt;Seats&gt; createSeats(String[] seatList) {
-<span class="nc" id="L47">        List&lt;Seats&gt; seats = new ArrayList&lt;&gt;();</span>
-<span class="nc bnc" id="L48" title="All 2 branches missed.">        for (String rowCol : seatList) {</span>
-<span class="nc" id="L49">            String[] places = rowCol.split(&quot;,&quot;);</span>
-<span class="nc" id="L50">            int row = Integer.parseInt(places[0]);</span>
-<span class="nc" id="L51">            int col = Integer.parseInt(places[1]);</span>
-<span class="nc" id="L52">            seats.add(new Seats(row, col));</span>
+<span class="nc" id="L54">        List&lt;Seats&gt; seats = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L55" title="All 2 branches missed.">        for (String rowCol : seatList) {</span>
+<span class="nc" id="L56">            String[] places = rowCol.split(&quot;,&quot;);</span>
+<span class="nc" id="L57">            int row = Integer.parseInt(places[0]);</span>
+<span class="nc" id="L58">            int col = Integer.parseInt(places[1]);</span>
+<span class="nc" id="L59">            seats.add(new Seats(row, col));</span>
         }
-<span class="nc" id="L54">        return seats;</span>
+<span class="nc" id="L61">        return seats;</span>
     }
 
     private List&lt;Book&gt; createBookings(String accountName, String movieName,
                                       String roomName, LocalDateTime screeningDate, List&lt;Seats&gt; seatList) {
-<span class="nc" id="L59">        List&lt;Book&gt; bookingList = new ArrayList&lt;&gt;();</span>
-<span class="nc bnc" id="L60" title="All 2 branches missed.">        for (Seats seats : seatList) {</span>
-<span class="nc" id="L61">            bookingList.add(new Book(accountName, movieName, roomName,</span>
-<span class="nc" id="L62">                    screeningDate, seats.getRowNum(), seats.getColNum()));</span>
-<span class="nc" id="L63">        }</span>
-<span class="nc" id="L64">        return bookingList;</span>
+<span class="nc" id="L66">        List&lt;Book&gt; bookingList = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L67" title="All 2 branches missed.">        for (Seats seats : seatList) {</span>
+<span class="nc" id="L68">            bookingList.add(new Book(accountName, movieName, roomName,</span>
+<span class="nc" id="L69">                    screeningDate, seats.getRowNum(), seats.getColNum()));</span>
+<span class="nc" id="L70">        }</span>
+<span class="nc" id="L71">        return bookingList;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

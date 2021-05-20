@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
 
+import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -16,46 +17,50 @@ public class DescribeAccountController {
 
     private final DescribeAccountService describeAccountService;
     private final BookService bookService;
-<span class="fc" id="L19">    private final int bookPrice = 1500;</span>
+<span class="fc" id="L20">    private final int bookPrice = 1500;</span>
 
     @Autowired
-<span class="fc" id="L22">    DescribeAccountController(DescribeAccountService describeAccountService, BookService bookService) {</span>
-<span class="fc" id="L23">        this.describeAccountService = describeAccountService;</span>
-<span class="fc" id="L24">        this.bookService = bookService;</span>
-<span class="fc" id="L25">    }</span>
+<span class="fc" id="L23">    DescribeAccountController(DescribeAccountService describeAccountService, BookService bookService) {</span>
+<span class="fc" id="L24">        this.describeAccountService = describeAccountService;</span>
+<span class="fc" id="L25">        this.bookService = bookService;</span>
+<span class="fc" id="L26">    }</span>
 
     @ShellMethod(value = &quot;Describe account&quot;, key = &quot;describe account&quot;)
     public String describeAccount() {
-<span class="fc bfc" id="L29" title="All 2 branches covered.">        if (describeAccountService.describe()) {</span>
-<span class="fc" id="L30">            return &quot;Signed in with privileged account '&quot; + AdminAccount.getUsername() + &quot;'&quot;;</span>
+<span class="fc bfc" id="L30" title="All 2 branches covered.">        if (describeAccountService.describe()) {</span>
+<span class="fc" id="L31">            return &quot;Signed in with privileged account '&quot; + AdminAccount.getUsername() + &quot;'&quot;;</span>
         }
 
-<span class="pc bpc" id="L33" title="1 of 2 branches missed.">        if (describeAccountService.describeUser()) {</span>
-<span class="nc" id="L34">            System.out.println(&quot;Signed in with account '&quot; + describeAccountService.getAccount() + &quot;'&quot;);</span>
-<span class="nc" id="L35">            List&lt;Book&gt; bookings = bookService.findAllBookingsForAccount(describeAccountService.getAccount());</span>
-<span class="nc bnc" id="L36" title="All 2 branches missed.">            if (bookings.isEmpty()) {</span>
-<span class="nc" id="L37">                return &quot;You have not booked any tickets yet&quot;;</span>
+<span class="pc bpc" id="L34" title="1 of 2 branches missed.">        if (describeAccountService.describeUser()) {</span>
+<span class="nc" id="L35">            System.out.println(&quot;Signed in with account '&quot; + describeAccountService.getAccount() + &quot;'&quot;);</span>
+<span class="nc" id="L36">            List&lt;Book&gt; bookings = bookService.findAllBookingsForAccount(describeAccountService.getAccount());</span>
+<span class="nc bnc" id="L37" title="All 2 branches missed.">            if (bookings.isEmpty()) {</span>
+<span class="nc" id="L38">                return &quot;You have not booked any tickets yet&quot;;</span>
             }
-<span class="nc" id="L39">            System.out.println(&quot;Your previous bookings are&quot;);</span>
-<span class="nc" id="L40">            System.out.print(&quot;Seats &quot;);</span>
-<span class="nc" id="L41">            int counter = 0;</span>
-<span class="nc" id="L42">            StringBuilder result = new StringBuilder();</span>
-<span class="nc bnc" id="L43" title="All 2 branches missed.">            for (Book book : bookings) {</span>
-<span class="nc" id="L44">                result.append(&quot;(&quot;).append(book.getRowNum()).append(&quot;,&quot;).append(book.getColNum()).append(&quot;), &quot;);</span>
-<span class="nc" id="L45">                counter++;</span>
-<span class="nc" id="L46">            }</span>
-<span class="nc" id="L47">            Book firstBooking = bookings.get(0);</span>
-<span class="nc" id="L48">            LocalDateTime screeningDate = firstBooking.getScreeningDate();</span>
-<span class="nc" id="L49">            result.delete(result.length() - 2, result.length() - 1);</span>
-<span class="nc" id="L50">            System.out.print(result + &quot; on &quot; + firstBooking.getMovieName() + &quot; in room &quot;</span>
-<span class="nc" id="L51">                    + firstBooking.getRoomName() + &quot; starting at &quot;);</span>
-<span class="nc" id="L52">            System.out.print(screeningDate.getYear() + &quot;-&quot; + screeningDate.getMonth()</span>
-<span class="nc" id="L53">                    + &quot;-&quot; + screeningDate.getDayOfMonth() + &quot; &quot; + screeningDate.getHour()</span>
-<span class="nc" id="L54">                    + &quot;:&quot; + screeningDate.getMinute() + &quot; for &quot; + bookPrice * counter + &quot; HUF\n&quot;);</span>
-<span class="nc" id="L55">            return null;</span>
+
+<span class="nc" id="L41">            System.out.println(&quot;Your previous bookings are&quot;);</span>
+<span class="nc" id="L42">            System.out.print(&quot;Seats &quot;);</span>
+<span class="nc" id="L43">            int counter = 0;</span>
+<span class="nc" id="L44">            StringBuilder result = new StringBuilder();</span>
+<span class="nc bnc" id="L45" title="All 2 branches missed.">            for (Book book : bookings) {</span>
+<span class="nc" id="L46">                result.append(&quot;(&quot;).append(book.getRowNum()).append(&quot;,&quot;).append(book.getColNum()).append(&quot;), &quot;);</span>
+<span class="nc" id="L47">                counter++;</span>
+<span class="nc" id="L48">            }</span>
+<span class="nc" id="L49">            Book firstBooking = bookings.get(0);</span>
+<span class="nc" id="L50">            LocalDateTime screeningDate = firstBooking.getScreeningDate();</span>
+<span class="nc" id="L51">            result.delete(result.length() - 2, result.length() - 1);</span>
+<span class="nc" id="L52">            System.out.print(result + &quot;on &quot; + firstBooking.getMovieName() + &quot; in room &quot;</span>
+<span class="nc" id="L53">                    + firstBooking.getRoomName() + &quot; starting at &quot;);</span>
+<span class="nc" id="L54">            DecimalFormat doubleDigitValue = new DecimalFormat(&quot;00&quot;);</span>
+<span class="nc" id="L55">            System.out.print(screeningDate.getYear() + &quot;-&quot;</span>
+<span class="nc" id="L56">                    + doubleDigitValue.format(screeningDate.getMonthValue())</span>
+<span class="nc" id="L57">                    + &quot;-&quot; + screeningDate.getDayOfMonth() + &quot; &quot; + screeningDate.getHour()</span>
+<span class="nc" id="L58">                    + &quot;:&quot; + doubleDigitValue.format(screeningDate.getMinute()) + &quot; for &quot;</span>
+                    + bookPrice * counter + &quot; HUF\n&quot;);
+<span class="nc" id="L60">            return null;</span>
         }
 
-<span class="fc" id="L58">        return &quot;You are not signed in&quot;;</span>
+<span class="fc" id="L63">        return &quot;You are not signed in&quot;;</span>
     }
 
 }

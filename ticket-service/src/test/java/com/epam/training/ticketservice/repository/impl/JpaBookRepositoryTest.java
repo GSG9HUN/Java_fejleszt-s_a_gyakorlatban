@@ -56,7 +56,7 @@ class JpaBookRepositoryTest {
             result=e.getMessage();
         }
         //then
-        assertEquals("Seats (5,5) is already taken",result);
+        assertEquals("Seat (5,5) is already taken",result);
     }
 
     @Test

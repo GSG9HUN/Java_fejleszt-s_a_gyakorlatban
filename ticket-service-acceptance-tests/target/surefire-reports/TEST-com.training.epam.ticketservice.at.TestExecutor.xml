@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite tests="24" failures="0" name="com.training.epam.ticketservice.at.TestExecutor" time="591.778" errors="0" skipped="0">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="java.vm.version" value="11.0.11+9-LTS-194"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-11.0.11\bin"/>
+    <property name="maven.multiModuleProjectDirectory" value="C:\Users\ssgam\Documents\GitHub\Java_fejlesztes_a_gyakorlatban"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="java.vendor.url" value="https://openjdk.java.net/"/>
+    <property name="path.separator" value=";"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="user.country" value="HU"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.script" value=""/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="user.dir" value="C:\Users\ssgam\Documents\GitHub\Java_fejlesztes_a_gyakorlatban"/>
+    <property name="java.vm.compressedOopsMode" value="32-bit"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.runtime.version" value="11.0.11+9-LTS-194"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="C:\Users\ssgam\AppData\Local\Temp\"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="classworlds.conf" value="C:\Users\ssgam\Desktop\apache-maven-3.8.1\bin\..\bin\m2.conf"/>
+    <property name="sun.jnu.encoding" value="Cp1250"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-11.0.11\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Git\cmd;C:\xampp\php;C:\ProgramData\ComposerSetup\bin;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\nodejs\;C:\Program Files\Java\jdk-11.0.11\bin;C:\Users\ssgam\Desktop\apache-maven-3.8.1\bin;C:\Users\ssgam\AppData\Local\Microsoft\WindowsApps;C:\Users\ssgam\AppData\Local\GitHubDesktop\bin;C:\Program Files\JetBrains\PyCharm Community Edition 2020.3.3\bin;;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2020.3.3\bin;;C:\Program Files\JetBrains\PhpStorm 2020.3.3\bin;;C:\Users\ssgam\AppData\Roaming\Composer\vendor\bin;C:\Program Files\JetBrains\CLion 2021.1.1\bin;;C:\Program Files\JetBrains\DataGrip 2021.1.1\bin;;C:\Program Files\JetBrains\WebStorm 2021.1.1\bin;;C:\Users\ssgam\AppData\Roaming\npm;C:\Users\ssgam\AppData\Local\Programs\Microsoft VS Code\bin;."/>
+    <property name="maven.conf" value="C:\Users\ssgam\Desktop\apache-maven-3.8.1\bin\../conf"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="java.class.version" value="55.0"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="10.0"/>
+    <property name="library.jansi.path" value="C:\Users\ssgam\Desktop\apache-maven-3.8.1\bin\..\lib\jansi-native"/>
+    <property name="user.home" value="C:\Users\ssgam"/>
+    <property name="user.timezone" value="Europe/Prague"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="file.encoding" value="Cp1250"/>
+    <property name="java.specification.version" value="11"/>
+    <property name="java.class.path" value="C:\Users\ssgam\Desktop\apache-maven-3.8.1\bin\..\boot\plexus-classworlds-2.6.0.jar"/>
+    <property name="user.name" value="ssgam"/>
+    <property name="java.vm.specification.version" value="11"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean verify -P requirements-grade4"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk-11.0.11"/>
+    <property name="user.language" value="hu"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="11.0.11"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="sun.stderr.encoding" value="cp852"/>
+    <property name="maven.home" value="C:\Users\ssgam\Desktop\apache-maven-3.8.1\bin\.."/>
+    <property name="file.separator" value="\"/>
+    <property name="java.version.date" value="2021-04-20"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.vendor.version" value="18.9"/>
+    <property name="sun.stdout.encoding" value="cp852"/>
+    <property name="sun.desktop" value="windows"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+  </properties>
+  <testcase classname="allow creating accounts and logging in" name="the admin account exists by default and can be logged in with the correct password" time="12.877"/>
+  <testcase classname="allow creating accounts and logging in" name="the admin account can be signed out" time="15.29"/>
+  <testcase classname="allow creating accounts and logging in" name="the admin account can not be logged in with incorrect password" time="13.272"/>
+  <testcase classname="allow creating accounts and logging in" name="non-privileged accounts can be created and logged in with the correct password" time="19.398"/>
+  <testcase classname="allow creating accounts and logging in" name="non-privileged accounts can not be logged in with the incorrect password" time="15.679"/>
+  <testcase classname="allow creating accounts and logging in" name="non-privileged accounts can be signed out" time="18.351"/>
+  <testcase classname="allows users to book tickets for screenings, and show booking history" name="an authenticated user can book a ticket for a screening" time="41.706"/>
+  <testcase classname="allows users to book tickets for screenings, and show booking history" name="an authenticated user can not book a ticket if at least one of the seats is already taken" time="47.767"/>
+  <testcase classname="allows creating movie descriptions" name="an admin user can create and list movies" time="17.675"/>
+  <testcase classname="allows creating movie descriptions" name="an admin user can update a movie" time="17.422"/>
+  <testcase classname="allows creating movie descriptions" name="an admin user can delete a movie" time="17.242"/>
+  <testcase classname="allows creating movie descriptions" name="an unauthenticated user can list movies" time="17.412"/>
+  <testcase classname="allows creating movie descriptions" name="an authenticated, non-privileged user can list movies" time="25.256"/>
+  <testcase classname="allow creating, reading, updating and deleting rooms where the screenings will happen" name="an admin user can create and list rooms" time="21.133"/>
+  <testcase classname="allow creating, reading, updating and deleting rooms where the screenings will happen" name="an admin user can update a room" time="22.462"/>
+  <testcase classname="allow creating, reading, updating and deleting rooms where the screenings will happen" name="an admin user can delete a room" time="22.986"/>
+  <testcase classname="allow creating, reading, updating and deleting rooms where the screenings will happen" name="an unauthenticated user can list rooms" time="22.41"/>
+  <testcase classname="allow creating, reading, updating and deleting rooms where the screenings will happen" name="an authenticated, non-privileged user can list rooms" time="22.833"/>
+  <testcase classname="allows creating, deleting and listing screenings" name="The admin user can create and query screenings" time="32.17"/>
+  <testcase classname="allows creating, deleting and listing screenings" name="The admin can not create overlapping screenings in the same room" time="32.701"/>
+  <testcase classname="allows creating, deleting and listing screenings" name="The admin can create overlapping screenings in different rooms" time="32.16"/>
+  <testcase classname="allows creating, deleting and listing screenings" name="The admin can not create screenings during a 10 minute long breaks after another screening in the same room" time="34.002"/>
+  <testcase classname="allows creating, deleting and listing screenings" name="The admin can create screenings even if there is a break after a screening in a different room" time="37.148"/>
+  <testcase classname="allows creating, deleting and listing screenings" name="The admin user can delete screenings" time="32.426"/>
+</testsuite>

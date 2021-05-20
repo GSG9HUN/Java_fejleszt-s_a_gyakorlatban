@@ -36,7 +36,14 @@ public class BookingController {
         } catch (BookException | CrudException e) {
             return e.getMessage();
         }
-        return null;
+        StringBuilder successBooking = new StringBuilder("Seats booked:");
+        for (Book book:
+             bookings) {
+            successBooking.append(" (").append(book.getRowNum()).append(",").append(book.getColNum()).append("),");
+        }
+        successBooking.replace(successBooking.length() - 1,successBooking.length(),";");
+        successBooking.append(" the price for this booking is ").append(1500 * bookings.size()).append(" HUF");
+        return successBooking.toString();
     }
 
     private LocalDateTime fomatDate(String screeningDate) {

@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.epam.training.ticketservice.controllers.ScreeningControllerTest
 -------------------------------------------------------------------------------
-Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.283 s - in com.epam.training.ticketservice.controllers.ScreeningControllerTest
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.158 s - in com.epam.training.ticketservice.controllers.ScreeningControllerTest

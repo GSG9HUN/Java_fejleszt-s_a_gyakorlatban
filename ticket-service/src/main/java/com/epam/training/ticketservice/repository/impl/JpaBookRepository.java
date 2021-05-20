@@ -40,6 +40,7 @@ public class JpaBookRepository {
         checkIfSeatIsTaken(room, bookings);
 
         saveBookings(bookings);
+
     }
 
 
@@ -51,7 +52,7 @@ public class JpaBookRepository {
             }
 
             if (seatIsTaken(booking)) {
-                throw new BookException("Seats (" + booking.getRowNum() + ","
+                throw new BookException("Seat (" + booking.getRowNum() + ","
                         + booking.getColNum() + ") is already taken");
             }
         }

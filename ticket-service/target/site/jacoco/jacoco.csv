@@ -23,8 +23,8 @@ ticket-service,com.epam.training.ticketservice.modell,Screening,0,27,0,0,0,10,0,
 ticket-service,com.epam.training.ticketservice.controllers,ScreeningController,0,116,0,6,0,36,0,7,0,4
 ticket-service,com.epam.training.ticketservice.controllers,SignInOutController,12,28,0,0,5,13,1,3,1,3
 ticket-service,com.epam.training.ticketservice.controllers,RoomController,0,88,0,8,0,31,0,9,0,5
-ticket-service,com.epam.training.ticketservice.controllers,BookingController,121,0,4,0,27,0,7,0,5,0
-ticket-service,com.epam.training.ticketservice.controllers,DescribeAccountController,101,25,5,3,21,9,3,3,0,2
+ticket-service,com.epam.training.ticketservice.controllers,BookingController,173,0,6,0,33,0,8,0,5,0
+ticket-service,com.epam.training.ticketservice.controllers,DescribeAccountController,112,25,5,3,23,9,3,3,0,2
 ticket-service,com.epam.training.ticketservice.controllers,CreateAccountController,18,0,0,0,8,0,2,0,2,0
 ticket-service,com.epam.training.ticketservice.controllers,MovieController,0,81,0,8,0,30,0,9,0,5
 ticket-service,com.epam.training.ticketservice.dataaccess.projection,RoomProjection,3,29,0,0,2,12,1,6,1,6

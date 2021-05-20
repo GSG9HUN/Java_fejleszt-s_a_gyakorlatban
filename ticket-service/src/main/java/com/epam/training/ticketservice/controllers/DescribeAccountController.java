@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
 
+import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -36,6 +37,7 @@ public class DescribeAccountController {
             if (bookings.isEmpty()) {
                 return "You have not booked any tickets yet";
             }
+
             System.out.println("Your previous bookings are");
             System.out.print("Seats ");
             int counter = 0;
@@ -47,11 +49,14 @@ public class DescribeAccountController {
             Book firstBooking = bookings.get(0);
             LocalDateTime screeningDate = firstBooking.getScreeningDate();
             result.delete(result.length() - 2, result.length() - 1);
-            System.out.print(result + " on " + firstBooking.getMovieName() + " in room "
+            System.out.print(result + "on " + firstBooking.getMovieName() + " in room "
                     + firstBooking.getRoomName() + " starting at ");
-            System.out.print(screeningDate.getYear() + "-" + screeningDate.getMonth()
+            DecimalFormat doubleDigitValue = new DecimalFormat("00");
+            System.out.print(screeningDate.getYear() + "-"
+                    + doubleDigitValue.format(screeningDate.getMonthValue())
                     + "-" + screeningDate.getDayOfMonth() + " " + screeningDate.getHour()
-                    + ":" + screeningDate.getMinute() + " for " + bookPrice * counter + " HUF\n");
+                    + ":" + doubleDigitValue.format(screeningDate.getMinute()) + " for "
+                    + bookPrice * counter + " HUF\n");
             return null;
         }
 
